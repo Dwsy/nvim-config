@@ -12,12 +12,22 @@
 
 ### 🎯 快速开始
 - **[配置指南](README.md)** - NvChad 完整配置（LSP、Treesitter、Mason）
+- **[开发工作流](WORKFLOW.md)** - 日常开发完整流程与实战场景
 - **[配置日志](CONFIG_LOG.md)** - 完整的实战配置日志（2025-12-28）
 
 ### 🧠 学习路线
 1. **[Vim 基础快捷键](VIM_KEYS.md)** - 从基础开始掌握 Vim
-2. **[导航与 Tabs 管理](NAVIGATION.md)** - 跳转历史、Buffer 管理、场景布局
-3. **[Tabufline & Session](TABUFLINE_SESSION.md)** - 状态保留、工作流自动化
+2. **[高效编辑技巧](EDITING_TIPS.md)** - 文本对象、多行编辑、宏录制
+3. **[导航与 Tabs 管理](NAVIGATION.md)** - 跳转历史、Buffer 管理、场景布局
+4. **[Tabufline & Session](TABUFLINE_SESSION.md)** - 状态保留、工作流自动化
+
+### 🔌 核心功能
+- **[LSP 代码智能](LSP_GUIDE.md)** - 跳转定义、引用、补全、诊断
+- **[Telescope 搜索](TELESCOPE.md)** - 模糊搜索、文件查找、全局搜索
+- **[Git 集成](GIT_INTEGRATION.md)** - Gitsigns、Blame、Hunk 操作
+
+### 🔧 参考手册
+- **[故障排查](TROUBLESHOOTING.md)** - 常见问题解决方案
 
 ---
 
