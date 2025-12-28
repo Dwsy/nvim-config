@@ -47,9 +47,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - admonition
   - pymdownx.details
   - pymdownx.tasklist
@@ -65,7 +62,5 @@ nav:
 plugins:
   - search:
       lang: en
-  - minify:
-      minify_html: true
 
 copyright: © 2025 NvChad 配置 | 中文完整指南
