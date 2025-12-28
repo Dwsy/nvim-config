@@ -1,0 +1,61 @@
+site_name: NvChad 配置指南
+site_description: 完整的 Neovim + NvChad 配置教程和文档
+repo_url: https://github.com/Dwsy/nvim-config
+repo_name: nvim-config
+
+theme:
+  name: material
+  language: zh
+  palette:
+    # 暗夜模式（默认）
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: 切换亮色模式
+    # 亮色模式
+    - scheme: default
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: 切换暗色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist
+
+nav:
+  - 首页: index.md
+  - 配置指南: README.md
+  - Vim 快捷键: VIM_KEYS.md
+  - 导航与 Tabs: NAVIGATION.md
+  - Tabufline & Session: TABUFLINE_SESSION.md
+  - 配置日志: CONFIG_LOG.md
+
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+
+copyright: © 2025 NvChad 配置 | 中文完整指南
