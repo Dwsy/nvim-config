@@ -1,0 +1,1765 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="完整的 Neovim + NvChad 配置教程和文档">
+      
+      
+      
+      
+        <link rel="prev" href="../VIM_KEYS/">
+      
+      
+        <link rel="next" href="../TABUFLINE_SESSION/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>导航与 Tabs - NvChad 配置指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nvim-tabs" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="NvChad 配置指南" class="md-header__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NvChad 配置指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              导航与 Tabs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="切换亮色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换亮色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="切换暗色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../README.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  配置指南
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../VIM_KEYS/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Vim 快捷键
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  导航与 Tabs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../TABUFLINE_SESSION/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tabufline & Session
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONFIG_LOG/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  配置日志
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="NvChad 配置指南" class="md-nav__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NvChad 配置指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VIM_KEYS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim 快捷键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jump-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一部分：跳转历史 (Jump History)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：跳转历史 (Jump History)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心概念：3 套历史系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、最重要的两个：前进 / 后退
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、最重要的两个：前进 / 后退">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⬅️ 后退（回到上一个位置）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ➡️ 前进（回到刚才的位置）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、能回退什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、查看跳转历史
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、查看跳转历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-jump-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法 1️⃣：查看 Jump List（最重要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2change-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法 2️⃣：查看修改历史（Change List）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、文件与 Buffer 历史
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、文件与 Buffer 历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最近打开的文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        已打开文件切换（Buffer）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、LSP + 导航的黄金组合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、必须记住的 6 个快捷键
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见疑问
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见疑问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qctrli-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q：Ctrl+i 和 Tab 冲突？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q：有没有"时间轴式撤销"？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabs-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二部分：Tabs 管理（3 个层级）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：Tabs 管理（3 个层级）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念澄清：90% 新手会混
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、基础 Tab 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、基础 Tab 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新建 Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关闭当前 Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在 Tabs 之间切换（最常用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跳到指定 tab（非常快）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看所有 Tabs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvchad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、NvChad 推荐方式（更高效）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、正确的使用姿势（重点）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、正确的使用姿势（重点）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ 不推荐：Tab 思维（VS Code）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 推荐：Buffer 思维（Vim）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、实操方案（基于你当前的截图）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、实操方案（基于你当前的截图）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一步：简化 Tab 数量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二步：在一个 Tab 里切文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三步：快速左右切 Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、速查表（收藏级）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、速查表（收藏级）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabs 操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buffers（更重要）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Window 分屏
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、推荐布局方案
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、推荐布局方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        场景 1：全栈开发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        场景 2：专注单 Tab（高手模式）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、从现在开始的工作流建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、从现在开始的工作流建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速启动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开新文件（到当前 Tab）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同场景切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看全局位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、进阶技巧（选看）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、进阶技巧（选看）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速定位 Tab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动创建工作布局
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TABUFLINE_SESSION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabufline & Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONFIG_LOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="nvim-tabs">Nvim 导航与 Tabs 管理完全指南</h1>
+<h2 id="jump-history">第一部分：跳转历史 (Jump History)</h2>
+<h3 id="3">核心概念：3 套历史系统</h3>
+<table>
+<thead>
+<tr>
+<th>系统</th>
+<th>快捷键</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jump List</td>
+<td><code>Ctrl+o</code> / <code>Ctrl+i</code></td>
+<td>光标位置跳转</td>
+</tr>
+<tr>
+<td>Change List</td>
+<td><code>g;</code> / <code>g,</code></td>
+<td>编辑修改位置</td>
+</tr>
+<tr>
+<td>File History</td>
+<td><code>Space+fo</code></td>
+<td>最近打开文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_1">一、最重要的两个：前进 / 后退</h2>
+<h3 id="_2">⬅️ 后退（回到上一个位置）</h3>
+<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">o</span>
+</code></pre></div>
+<h3 id="_3">➡️ 前进（回到刚才的位置）</h3>
+<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">i</span>
+</code></pre></div>
+<p><strong>记忆法：</strong>
+- <code>o</code> = older（更老的位置）
+- <code>i</code> = newer（更新的位置）
+- 和浏览器的 ⬅️➡️ 完全一样</p>
+<hr />
+<h2 id="_4">二、能回退什么？</h2>
+<p>所有"光标大移动"都能用 <code>Ctrl+o</code> / <code>Ctrl+i</code> 回退：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跳转定义</td>
+<td><code>gd</code></td>
+</tr>
+<tr>
+<td>查看引用</td>
+<td><code>gr</code></td>
+</tr>
+<tr>
+<td>搜索</td>
+<td><code>/xxx</code></td>
+</tr>
+<tr>
+<td>文件开头/末尾</td>
+<td><code>gg</code> / <code>G</code></td>
+</tr>
+<tr>
+<td>文件间跳转</td>
+<td><code>:e file.js</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">三、查看跳转历史</h2>
+<h3 id="1-jump-list">方法 1️⃣：查看 Jump List（最重要）</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>
+</code></pre></div>
+<p>输出示例：
+<div class="highlight"><pre><span></span><code> jump line  col file/text
+   1   86   10  src/Main.java
+   2   34    2  src/Service.java
+   3   12    5  src/Util.java
+</code></pre></div></p>
+<p><code>Ctrl+o</code> / <code>Ctrl+i</code> 就是在这个列表里移动。</p>
+<h3 id="2change-list">方法 2️⃣：查看修改历史（Change List）</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">changes</span>
+</code></pre></div>
+<p>对应快捷键：
+<div class="highlight"><pre><span></span><code><span class="k">g</span>;    上一个修改点
+<span class="k">g</span><span class="p">,</span>    下一个修改点
+</code></pre></div></p>
+<hr />
+<h2 id="buffer">四、文件与 Buffer 历史</h2>
+<h3 id="_6">最近打开的文件</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">oldfiles</span>
+</code></pre></div>
+<p>或（NvChad 推荐）：
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> <span class="k">fo</span>
+</code></pre></div></p>
+<h3 id="buffer_1">已打开文件切换（Buffer）</h3>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb
+</code></pre></div>
+<p>在已打开文件之间来回切。</p>
+<hr />
+<h2 id="lsp">五、LSP + 导航的黄金组合</h2>
+<p>看代码 → 跳 → 回来</p>
+<div class="highlight"><pre><span></span><code><span class="nb">gd</span>          # 跳到定义
+Ctrl <span class="p">+</span> <span class="k">o</span>    # 回来
+Ctrl <span class="p">+</span> <span class="k">i</span>    # 再过去
+</code></pre></div>
+<p>👉 这三个是 Vim 用户的肌肉记忆。</p>
+<hr />
+<h2 id="6">六、必须记住的 6 个快捷键</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gd</code></td>
+<td>跳到定义</td>
+</tr>
+<tr>
+<td><code>Ctrl+o</code></td>
+<td>后退</td>
+</tr>
+<tr>
+<td><code>Ctrl+i</code></td>
+<td>前进</td>
+</tr>
+<tr>
+<td><code>:jumps</code></td>
+<td>查看跳转历史</td>
+</tr>
+<tr>
+<td><code>g;</code></td>
+<td>上一个修改点</td>
+</tr>
+<tr>
+<td><code>Space+fo</code></td>
+<td>最近文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">常见疑问</h2>
+<h3 id="qctrli-tab">Q：<code>Ctrl+i</code> 和 <code>Tab</code> 冲突？</h3>
+<p>在终端里它们是同一个键，但 Vim 内部仍然区分 jump list。放心用就行。</p>
+<h3 id="q">Q：有没有"时间轴式撤销"？</h3>
+<p>有：<code>u</code> / <code>Ctrl+r</code>，那是内容历史，不是位置历史。</p>
+<hr />
+<hr />
+<h2 id="tabs-3">第二部分：Tabs 管理（3 个层级）</h2>
+<h3 id="90">概念澄清：90% 新手会混</h3>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Buffer</strong> ✅ 最重要</td>
+<td>一个文件 = 一个 buffer</td>
+<td>README.md / Main.java</td>
+</tr>
+<tr>
+<td><strong>Window</strong></td>
+<td>屏幕里的分屏</td>
+<td><code>:sp</code> / <code>:vsp</code></td>
+</tr>
+<tr>
+<td><strong>Tab</strong></td>
+<td>一组 window/buffer 的工作区</td>
+<td>顶部标签页列表</td>
+</tr>
+</tbody>
+</table>
+<p>👉 你平时其实主要在"切 buffer"，不是 tab。</p>
+<hr />
+<h2 id="tab">一、基础 Tab 操作</h2>
+<h3 id="tab_1">新建 Tab</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabnew</span>
+</code></pre></div>
+<p>打开文件到新 tab：
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabedit</span> README.md
+</code></pre></div></p>
+<h3 id="tab_2">关闭当前 Tab</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabclose</span>
+<span class="p">:</span><span class="k">tabc</span>          <span class="c">&quot; 缩写</span>
+</code></pre></div>
+<h3 id="tabs">在 Tabs 之间切换（最常用）</h3>
+<div class="highlight"><pre><span></span><code>gt     下一个 <span class="k">tab</span>
+gT     上一个 <span class="k">tab</span>
+</code></pre></div>
+<h3 id="tab_3">跳到指定 tab（非常快）</h3>
+<div class="highlight"><pre><span></span><code><span class="m">1</span>gt    跳到第 <span class="m">1</span> 个 <span class="k">tab</span>
+<span class="m">2</span>gt    跳到第 <span class="m">2</span> 个 <span class="k">tab</span>
+</code></pre></div>
+<h3 id="tabs_1">查看所有 Tabs</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabs</span>
+</code></pre></div>
+<hr />
+<h2 id="nvchad">二、NvChad 推荐方式（更高效）</h2>
+<p>NvChad 默认鼓励用 <strong>buffer</strong>，而不是 tab。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buffer 切换列表</td>
+<td><code>Space + bb</code></td>
+</tr>
+<tr>
+<td>关闭当前 buffer</td>
+<td><code>Space + bd</code></td>
+</tr>
+</tbody>
+</table>
+<p>👉 这比 tabs 高效很多。</p>
+<hr />
+<h2 id="_8">三、正确的使用姿势（重点）</h2>
+<h3 id="tab-vs-code">❌ 不推荐：Tab 思维（VS Code）</h3>
+<div class="highlight"><pre><span></span><code>一个文件一个 tab
+tab 数量无限增长
+</code></pre></div>
+<h3 id="buffer-vim">✅ 推荐：Buffer 思维（Vim）</h3>
+<div class="highlight"><pre><span></span><code>Tab = 场景 / 工作区
+Buffer = 文件
+
+Tab 1：前端（Vue / TS）
+  - App.vue
+  - main.ts
+  - config.ts
+
+Tab 2：后端（Java）
+  - Main.java
+  - Service.java
+  - Util.java
+
+Tab 3：文档
+  - README.md
+  - CHANGELOG.md
+</code></pre></div>
+<p><strong>在每个 Tab 里：</strong>
+- 用 <code>Space + bb</code> 切文件
+- 用 <code>Ctrl+w</code> 管分屏</p>
+<hr />
+<h2 id="_9">四、实操方案（基于你当前的截图）</h2>
+<h3 id="tab_4">第一步：简化 Tab 数量</h3>
+<p>只保留 2-3 个 tab：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabc</span>     <span class="c">&quot; 关闭不需要的 tab</span>
+</code></pre></div>
+<h3 id="tab_5">第二步：在一个 Tab 里切文件</h3>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 打开 buffer 列表</span>
+
+选择：
+  FillContext.java
+  FuzzyMatcher.<span class="nb">js</span>
+  README.md
+</code></pre></div>
+<h3 id="tab_6">第三步：快速左右切 Tab</h3>
+<div class="highlight"><pre><span></span><code>gt        <span class="c">&quot; 下一个 tab</span>
+gT        <span class="c">&quot; 上一个 tab</span>
+</code></pre></div>
+<hr />
+<h2 id="_10">五、速查表（收藏级）</h2>
+<h3 id="tabs_2">Tabs 操作</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:tabnew</code></td>
+<td>新 tab</td>
+</tr>
+<tr>
+<td><code>:tabedit 文件</code></td>
+<td>打开到新 tab</td>
+</tr>
+<tr>
+<td><code>:tabc</code></td>
+<td>关 tab</td>
+</tr>
+<tr>
+<td><code>gt</code> / <code>gT</code></td>
+<td>下一个 / 上一个</td>
+</tr>
+<tr>
+<td><code>:number gt</code></td>
+<td>跳转到第 N 个 tab</td>
+</tr>
+<tr>
+<td><code>:tabs</code></td>
+<td>查看所有 tab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="buffers">Buffers（更重要）</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space + bb</code></td>
+<td>切 buffer</td>
+</tr>
+<tr>
+<td><code>Space + bd</code></td>
+<td>关 buffer</td>
+</tr>
+<tr>
+<td><code>:buffers</code></td>
+<td>列出所有 buffer</td>
+</tr>
+<tr>
+<td><code>:bn</code> / <code>:bp</code></td>
+<td>下一个 / 上一个 buffer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="window">Window 分屏</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+w s</code></td>
+<td>水平分屏</td>
+</tr>
+<tr>
+<td><code>Ctrl+w v</code></td>
+<td>垂直分屏</td>
+</tr>
+<tr>
+<td><code>Ctrl+w h/j/k/l</code></td>
+<td>切换窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+w =</code></td>
+<td>均分窗口</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_11">六、推荐布局方案</h2>
+<h3 id="1">场景 1：全栈开发</h3>
+<p><strong>Tab 1：前端</strong>
+<div class="highlight"><pre><span></span><code>┌─────────────────┐
+│ App.vue      │ main.ts  │
+└─────────────────┘
+</code></pre></div>
+快捷键：<code>Space+bb</code> 切换文件</p>
+<p><strong>Tab 2：后端</strong>
+<div class="highlight"><pre><span></span><code>┌──────────────────────┐
+│ Main.java   │ Service.java │
+└──────────────────────┘
+</code></pre></div>
+快捷键：<code>Space+bb</code> 切换文件</p>
+<p><strong>Tab 3：文档 / 配置</strong>
+<div class="highlight"><pre><span></span><code>┌──────────────────┐
+│ README.md │ pom.xml │
+└──────────────────┘
+</code></pre></div></p>
+<h3 id="2-tab">场景 2：专注单 Tab（高手模式）</h3>
+<p>只用 1 个 tab + buffer 列表：</p>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 列出所有打开的文件</span>
+</code></pre></div>
+<p>优点：
+- 更少的上下文切换
+- 专注当前任务
+- Buffer 之间快速跳转</p>
+<hr />
+<h2 id="_12">七、一句话总结</h2>
+<p>🔥 <strong>在 nvim 里：</strong></p>
+<ul>
+<li><strong>Tabs</strong> = 工作区 / 场景（2-3 个即可）</li>
+<li><strong>Buffers</strong> = 文件（用 <code>Space+bb</code> 切换）</li>
+<li><strong>Windows</strong> = 分屏（用 <code>Ctrl+w</code> 管理）</li>
+</ul>
+<p><strong>90% 情况下你只需要 buffer，不需要多个 tab。</strong></p>
+<hr />
+<h2 id="_13">八、从现在开始的工作流建议</h2>
+<h3 id="_14">快速启动</h3>
+<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>~/project
+</code></pre></div>
+<h3 id="tab_7">打开新文件（到当前 Tab）</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">e</span> src/Main.java
+Space <span class="p">+</span> bb      <span class="c">&quot; 看看打开了哪些文件</span>
+</code></pre></div>
+<h3 id="_15">不同场景切换</h3>
+<div class="highlight"><pre><span></span><code>gt              <span class="c">&quot; 下一个 tab</span>
+gT              <span class="c">&quot; 上一个 tab</span>
+Space <span class="p">+</span> bb      <span class="c">&quot; 在 tab 内切文件</span>
+</code></pre></div>
+<h3 id="_16">查看全局位置</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>          <span class="c">&quot; 你跳过哪些地方</span>
+Space <span class="p">+</span> <span class="k">fo</span>      <span class="c">&quot; 最近打开的文件</span>
+</code></pre></div>
+<hr />
+<h2 id="_17">九、进阶技巧（选看）</h2>
+<h3 id="tab_8">快速定位 Tab</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 获取当前 tab 编号</span>
+<span class="p">:</span><span class="k">echom</span> tabpagenr<span class="p">()</span>
+
+<span class="c">&quot; 快速跳转</span>
+<span class="m">5</span>gt    <span class="c">&quot; 跳到第 5 个 tab</span>
+</code></pre></div>
+<h3 id="_18">自动创建工作布局</h3>
+<p>创建 <code>~/.config/nvim/session.vim</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; Session 1: Frontend</span>
+<span class="k">tabedit</span> src/App.vue
+<span class="k">tabedit</span> src/main.<span class="k">ts</span>
+
+<span class="c">&quot; Session 2: Backend</span>
+<span class="k">tabnew</span>
+<span class="k">tabedit</span> src/Main.java
+<span class="k">tabedit</span> src/Service.java
+
+<span class="c">&quot; 回到第一个 tab</span>
+<span class="m">1</span>gt
+</code></pre></div>
+<p>启动时加载：
+<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>-S<span class="w"> </span>session.vim
+</code></pre></div></p>
+<hr />
+<h2 id="_19">总结速查</h2>
+<p><strong>今天必学的 5 个快捷键：</strong></p>
+<div class="highlight"><pre><span></span><code>Ctrl<span class="p">+</span><span class="k">o</span>        后退到上一个位置
+Ctrl<span class="p">+</span><span class="k">i</span>        前进到下一个位置
+Space<span class="p">+</span>bb      切换 buffer
+gt            下一个 <span class="k">tab</span>
+gT            上一个 <span class="k">tab</span>
+</code></pre></div>
+<p><strong>3 个命令一定记得：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>        查看跳转历史
+<span class="p">:</span><span class="k">tabnew</span>       新建 <span class="k">tab</span>
+<span class="p">:</span><span class="k">tabc</span>         关闭 <span class="k">tab</span>
+</code></pre></div>
+<p>从现在开始，你已经掌握了 Vim 的"导航系统"，可以像真正的 Vim 用户一样高效工作了！</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 NvChad 配置 | 中文完整指南
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
