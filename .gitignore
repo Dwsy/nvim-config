@@ -22,3 +22,4 @@ env/
 venv/
 *.egg-info/
 dist/
+.ace-tool/
