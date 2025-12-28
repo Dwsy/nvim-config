@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="GIT_INTEGRATION.html">
+        <link rel="prev" href="TABUFLINE_SESSION.html">
       
       
-        <link rel="next" href="TABUFLINE_SESSION.html">
+        <link rel="next" href="CONFIG_LOG.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>导航与 Tabs - NvChad 配置指南</title>
+        <title>故障排查 - NvChad 配置指南</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nvim-tabs" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              导航与 Tabs
+              故障排查
             
           </span>
         </div>
@@ -299,12 +299,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="NAVIGATION.html" class="md-tabs__link">
           
   
@@ -321,10 +319,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="TROUBLESHOOTING.html" class="md-tabs__link">
           
   
@@ -732,31 +732,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -774,7 +771,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -789,37 +786,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    导航与 Tabs
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="NAVIGATION.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="NAVIGATION.html" class="md-nav__link">
         
   
   
@@ -835,654 +805,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#jump-history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第一部分：跳转历史 (Jump History)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第一部分：跳转历史 (Jump History)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心概念：3 套历史系统
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        一、最重要的两个：前进 / 后退
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、最重要的两个：前进 / 后退">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⬅️ 后退（回到上一个位置）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ➡️ 前进（回到刚才的位置）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        二、能回退什么？
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        三、查看跳转历史
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="三、查看跳转历史">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-jump-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        方法 1️⃣：查看 Jump List（最重要）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2change-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        方法 2️⃣：查看修改历史（Change List）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#buffer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四、文件与 Buffer 历史
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四、文件与 Buffer 历史">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        最近打开的文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        已打开文件切换（Buffer）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五、LSP + 导航的黄金组合
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        六、必须记住的 6 个快捷键
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见疑问
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="常见疑问">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qctrli-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q：Ctrl+i 和 Tab 冲突？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q：有没有"时间轴式撤销"？
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tabs-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第二部分：Tabs 管理（3 个层级）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第二部分：Tabs 管理（3 个层级）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#90" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概念澄清：90% 新手会混
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        一、基础 Tab 操作
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、基础 Tab 操作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        新建 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关闭当前 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tabs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        在 Tabs 之间切换（最常用）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        跳到指定 tab（非常快）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tabs_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        查看所有 Tabs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nvchad" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        二、NvChad 推荐方式（更高效）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        三、正确的使用姿势（重点）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="三、正确的使用姿势（重点）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ 不推荐：Tab 思维（VS Code）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffer-vim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ 推荐：Buffer 思维（Vim）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四、实操方案（基于你当前的截图）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四、实操方案（基于你当前的截图）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第一步：简化 Tab 数量
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第二步：在一个 Tab 里切文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第三步：快速左右切 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五、速查表（收藏级）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="五、速查表（收藏级）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tabs_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tabs 操作
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buffers（更重要）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Window 分屏
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        六、推荐布局方案
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="六、推荐布局方案">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 1：全栈开发
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 2：专注单 Tab（高手模式）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        七、一句话总结
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        八、从现在开始的工作流建议
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="八、从现在开始的工作流建议">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速启动
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        打开新文件（到当前 Tab）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        不同场景切换
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        查看全局位置
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        九、进阶技巧（选看）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="九、进阶技巧（选看）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速定位 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        自动创建工作布局
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结速查
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1527,28 +849,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1566,7 +891,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1581,10 +906,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="TROUBLESHOOTING.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    故障排查
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="TROUBLESHOOTING.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1600,6 +952,421 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="启动问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-xxx-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：启动报错 module 'xxx' not found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：启动非常慢
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treesitter 问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Treesitter 问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-nvim-treesitterconfigs-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：module 'nvim-treesitter.configs' not found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：语法高亮不工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LSP 问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LSP 问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：gd 不工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：补全不出现
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：格式化不工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java 专项问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java 专项问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：Java LSP 不启动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lombok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：Lombok 注解不识别
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mason" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mason 问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mason 问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mason_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：Mason 安装失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：找不到已安装的工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快捷键问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：快捷键不生效
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：Leader 键是什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：编辑大文件卡顿
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：内存占用高
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：插件下载失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mason_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题：Mason 下载超时
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重置一切
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取帮助
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取帮助">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看健康状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看日志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用调试命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        速查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1660,469 +1427,281 @@
   
 
 
-<h1 id="nvim-tabs">Nvim 导航与 Tabs 管理完全指南</h1>
-<h2 id="jump-history">第一部分：跳转历史 (Jump History)</h2>
-<h3 id="3">核心概念：3 套历史系统</h3>
-<table>
-<thead>
-<tr>
-<th>系统</th>
-<th>快捷键</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Jump List</td>
-<td><code>Ctrl+o</code> / <code>Ctrl+i</code></td>
-<td>光标位置跳转</td>
-</tr>
-<tr>
-<td>Change List</td>
-<td><code>g;</code> / <code>g,</code></td>
-<td>编辑修改位置</td>
-</tr>
-<tr>
-<td>File History</td>
-<td><code>Space+fo</code></td>
-<td>最近打开文件</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_1">一、最重要的两个：前进 / 后退</h2>
-<h3 id="_2">⬅️ 后退（回到上一个位置）</h3>
-<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">o</span>
-</code></pre></div>
-<h3 id="_3">➡️ 前进（回到刚才的位置）</h3>
-<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">i</span>
-</code></pre></div>
-<p><strong>记忆法：</strong>
-- <code>o</code> = older（更老的位置）
-- <code>i</code> = newer（更新的位置）
-- 和浏览器的 ⬅️➡️ 完全一样</p>
-<hr />
-<h2 id="_4">二、能回退什么？</h2>
-<p>所有"光标大移动"都能用 <code>Ctrl+o</code> / <code>Ctrl+i</code> 回退：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>跳转定义</td>
-<td><code>gd</code></td>
-</tr>
-<tr>
-<td>查看引用</td>
-<td><code>gr</code></td>
-</tr>
-<tr>
-<td>搜索</td>
-<td><code>/xxx</code></td>
-</tr>
-<tr>
-<td>文件开头/末尾</td>
-<td><code>gg</code> / <code>G</code></td>
-</tr>
-<tr>
-<td>文件间跳转</td>
-<td><code>:e file.js</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_5">三、查看跳转历史</h2>
-<h3 id="1-jump-list">方法 1️⃣：查看 Jump List（最重要）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>
-</code></pre></div>
-<p>输出示例：
-<div class="highlight"><pre><span></span><code> jump line  col file/text
-   1   86   10  src/Main.java
-   2   34    2  src/Service.java
-   3   12    5  src/Util.java
-</code></pre></div></p>
-<p><code>Ctrl+o</code> / <code>Ctrl+i</code> 就是在这个列表里移动。</p>
-<h3 id="2change-list">方法 2️⃣：查看修改历史（Change List）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">changes</span>
-</code></pre></div>
-<p>对应快捷键：
-<div class="highlight"><pre><span></span><code><span class="k">g</span>;    上一个修改点
-<span class="k">g</span><span class="p">,</span>    下一个修改点
-</code></pre></div></p>
-<hr />
-<h2 id="buffer">四、文件与 Buffer 历史</h2>
-<h3 id="_6">最近打开的文件</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">oldfiles</span>
-</code></pre></div>
-<p>或（NvChad 推荐）：
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> <span class="k">fo</span>
-</code></pre></div></p>
-<h3 id="buffer_1">已打开文件切换（Buffer）</h3>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb
-</code></pre></div>
-<p>在已打开文件之间来回切。</p>
-<hr />
-<h2 id="lsp">五、LSP + 导航的黄金组合</h2>
-<p>看代码 → 跳 → 回来</p>
-<div class="highlight"><pre><span></span><code><span class="nb">gd</span>          # 跳到定义
-Ctrl <span class="p">+</span> <span class="k">o</span>    # 回来
-Ctrl <span class="p">+</span> <span class="k">i</span>    # 再过去
-</code></pre></div>
-<p>👉 这三个是 Vim 用户的肌肉记忆。</p>
-<hr />
-<h2 id="6">六、必须记住的 6 个快捷键</h2>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>gd</code></td>
-<td>跳到定义</td>
-</tr>
-<tr>
-<td><code>Ctrl+o</code></td>
-<td>后退</td>
-</tr>
-<tr>
-<td><code>Ctrl+i</code></td>
-<td>前进</td>
-</tr>
-<tr>
-<td><code>:jumps</code></td>
-<td>查看跳转历史</td>
-</tr>
-<tr>
-<td><code>g;</code></td>
-<td>上一个修改点</td>
-</tr>
-<tr>
-<td><code>Space+fo</code></td>
-<td>最近文件</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_7">常见疑问</h2>
-<h3 id="qctrli-tab">Q：<code>Ctrl+i</code> 和 <code>Tab</code> 冲突？</h3>
-<p>在终端里它们是同一个键，但 Vim 内部仍然区分 jump list。放心用就行。</p>
-<h3 id="q">Q：有没有"时间轴式撤销"？</h3>
-<p>有：<code>u</code> / <code>Ctrl+r</code>，那是内容历史，不是位置历史。</p>
-<hr />
-<hr />
-<h2 id="tabs-3">第二部分：Tabs 管理（3 个层级）</h2>
-<h3 id="90">概念澄清：90% 新手会混</h3>
-<table>
-<thead>
-<tr>
-<th>层级</th>
-<th>说明</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Buffer</strong> ✅ 最重要</td>
-<td>一个文件 = 一个 buffer</td>
-<td>README.md / Main.java</td>
-</tr>
-<tr>
-<td><strong>Window</strong></td>
-<td>屏幕里的分屏</td>
-<td><code>:sp</code> / <code>:vsp</code></td>
-</tr>
-<tr>
-<td><strong>Tab</strong></td>
-<td>一组 window/buffer 的工作区</td>
-<td>顶部标签页列表</td>
-</tr>
-</tbody>
-</table>
-<p>👉 你平时其实主要在"切 buffer"，不是 tab。</p>
-<hr />
-<h2 id="tab">一、基础 Tab 操作</h2>
-<h3 id="tab_1">新建 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabnew</span>
-</code></pre></div>
-<p>打开文件到新 tab：
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabedit</span> README.md
-</code></pre></div></p>
-<h3 id="tab_2">关闭当前 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabclose</span>
-<span class="p">:</span><span class="k">tabc</span>          <span class="c">&quot; 缩写</span>
-</code></pre></div>
-<h3 id="tabs">在 Tabs 之间切换（最常用）</h3>
-<div class="highlight"><pre><span></span><code>gt     下一个 <span class="k">tab</span>
-gT     上一个 <span class="k">tab</span>
-</code></pre></div>
-<h3 id="tab_3">跳到指定 tab（非常快）</h3>
-<div class="highlight"><pre><span></span><code><span class="m">1</span>gt    跳到第 <span class="m">1</span> 个 <span class="k">tab</span>
-<span class="m">2</span>gt    跳到第 <span class="m">2</span> 个 <span class="k">tab</span>
-</code></pre></div>
-<h3 id="tabs_1">查看所有 Tabs</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabs</span>
-</code></pre></div>
-<hr />
-<h2 id="nvchad">二、NvChad 推荐方式（更高效）</h2>
-<p>NvChad 默认鼓励用 <strong>buffer</strong>，而不是 tab。</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Buffer 切换列表</td>
-<td><code>Space + bb</code></td>
-</tr>
-<tr>
-<td>关闭当前 buffer</td>
-<td><code>Space + bd</code></td>
-</tr>
-</tbody>
-</table>
-<p>👉 这比 tabs 高效很多。</p>
-<hr />
-<h2 id="_8">三、正确的使用姿势（重点）</h2>
-<h3 id="tab-vs-code">❌ 不推荐：Tab 思维（VS Code）</h3>
-<div class="highlight"><pre><span></span><code>一个文件一个 tab
-tab 数量无限增长
-</code></pre></div>
-<h3 id="buffer-vim">✅ 推荐：Buffer 思维（Vim）</h3>
-<div class="highlight"><pre><span></span><code>Tab = 场景 / 工作区
-Buffer = 文件
+<h1 id="_1">常见问题排查</h1>
+<h2 id="_2">启动问题</h2>
+<h3 id="module-xxx-not-found">问题：启动报错 <code>module 'xxx' not found</code></h3>
+<p><strong>原因</strong>：插件未正确安装或版本不兼容</p>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 清理插件缓存</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.local/share/nvim/lazy
 
-Tab 1：前端（Vue / TS）
-  - App.vue
-  - main.ts
-  - config.ts
+<span class="c1"># 2. 重新启动</span>
+nvim
 
-Tab 2：后端（Java）
-  - Main.java
-  - Service.java
-  - Util.java
-
-Tab 3：文档
-  - README.md
-  - CHANGELOG.md
+<span class="c1"># 3. 等待插件自动安装完成</span>
 </code></pre></div>
-<p><strong>在每个 Tab 里：</strong>
-- 用 <code>Space + bb</code> 切文件
-- 用 <code>Ctrl+w</code> 管分屏</p>
+<h3 id="_3">问题：启动非常慢</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Lazy profile
+</code></pre></div>
+<p>查看哪个插件加载慢。</p>
+<p><strong>常见原因</strong>：</p>
+<ol>
+<li>treesitter 首次编译语法文件</li>
+<li>Mason 下载 LSP 服务器</li>
+<li>网络问题</li>
+</ol>
 <hr />
-<h2 id="_9">四、实操方案（基于你当前的截图）</h2>
-<h3 id="tab_4">第一步：简化 Tab 数量</h3>
-<p>只保留 2-3 个 tab：</p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabc</span>     <span class="c">&quot; 关闭不需要的 tab</span>
+<h2 id="treesitter">Treesitter 问题</h2>
+<h3 id="module-nvim-treesitterconfigs-not-found">问题：<code>module 'nvim-treesitter.configs' not found</code></h3>
+<p><strong>原因</strong>：treesitter main 分支移除了旧 API</p>
+<p><strong>解决</strong>：锁定 master 分支</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- plugins/init.lua</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;master&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 关键</span>
+<span class="p">}</span>
 </code></pre></div>
-<h3 id="tab_5">第二步：在一个 Tab 里切文件</h3>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 打开 buffer 列表</span>
+<h3 id="_4">问题：语法高亮不工作</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSInstallInfo
+</code></pre></div>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSInstall <span class="p">&lt;</span>语言<span class="p">&gt;</span>
+</code></pre></div>
+<p>例如：<code>:TSInstall typescript vue python</code></p>
+<hr />
+<h2 id="lsp">LSP 问题</h2>
+<h3 id="gd">问题：<code>gd</code> 不工作</h3>
+<p><strong>排查步骤</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 检查 LSP 是否启动</span>
+<span class="p">:</span>LspInfo
 
-选择：
-  FillContext.java
-  FuzzyMatcher.<span class="nb">js</span>
-  README.md
+<span class="c">&quot; 2. 检查文件类型</span>
+<span class="p">:</span><span class="k">set</span> <span class="nb">ft</span>?
+
+<span class="c">&quot; 3. 检查 LSP 日志</span>
+<span class="p">:</span>LspLog
 </code></pre></div>
-<h3 id="tab_6">第三步：快速左右切 Tab</h3>
-<div class="highlight"><pre><span></span><code>gt        <span class="c">&quot; 下一个 tab</span>
-gT        <span class="c">&quot; 上一个 tab</span>
+<p><strong>常见原因</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LSP 未安装</td>
+<td><code>:Mason</code> 安装对应服务器</td>
+</tr>
+<tr>
+<td>项目无根目录</td>
+<td>添加 <code>.git</code> 或配置文件</td>
+</tr>
+<tr>
+<td>服务器崩溃</td>
+<td><code>:LspRestart</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">问题：补全不出现</h3>
+<p><strong>检查</strong>：</p>
+<ol>
+<li>确保在插入模式</li>
+<li>输入几个字符触发</li>
+<li>手动触发：<code>Ctrl+Space</code></li>
+</ol>
+<p><strong>如果还不行</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>checkhealth nvim<span class="p">-</span><span class="nb">cmp</span>
+</code></pre></div>
+<h3 id="_6">问题：格式化不工作</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>ConformInfo
+</code></pre></div>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 确认 formatter 已安装</span>
+<span class="p">:</span>Mason
+
+<span class="c">&quot; 2. 手动格式化测试</span>
+<span class="p">:</span><span class="k">lua</span> require<span class="p">(</span><span class="s2">&quot;conform&quot;</span><span class="p">)</span>.format<span class="p">()</span>
 </code></pre></div>
 <hr />
-<h2 id="_10">五、速查表（收藏级）</h2>
-<h3 id="tabs_2">Tabs 操作</h3>
+<h2 id="java">Java 专项问题</h2>
+<h3 id="java-lsp">问题：Java LSP 不启动</h3>
+<p><strong>检查 jdtls 安装</strong>：</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>~/.local/share/nvim/mason/packages/jdtls/
+</code></pre></div>
+<p><strong>手动测试</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">lua</span> print<span class="p">(</span><span class="k">vim</span>.inspect<span class="p">(</span><span class="k">vim</span>.<span class="nb">lsp</span>.get_active_clients<span class="p">()))</span>
+</code></pre></div>
+<h3 id="lombok">问题：Lombok 注解不识别</h3>
+<p><strong>原因</strong>：缺少 <code>-javaagent:lombok.jar</code></p>
+<p><strong>检查 lombok.jar 是否存在</strong>：</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>~/.local/share/nvim/mason/packages/jdtls/lombok.jar
+</code></pre></div>
+<p><strong>确认配置</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">-- ... 其他参数</span>
+<span class="w">  </span><span class="s2">&quot;-javaagent:&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">jdtls_path</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/lombok.jar&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="mason">Mason 问题</h2>
+<h3 id="mason_1">问题：Mason 安装失败</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>MasonLog
+</code></pre></div>
+<p><strong>常见原因</strong>：</p>
+<ol>
+<li>网络问题 → 检查代理设置</li>
+<li>磁盘空间 → 清理空间</li>
+<li>权限问题 → 检查目录权限</li>
+</ol>
+<p><strong>手动重试</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>MasonInstall <span class="p">&lt;</span>工具名<span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="_7">问题：找不到已安装的工具</h3>
+<p><strong>检查 PATH</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">lua</span> print<span class="p">(</span><span class="k">vim</span>.fn.stdpath<span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span> .. <span class="s2">&quot;/mason/bin&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>确保这个路径在系统 PATH 中。</p>
+<hr />
+<h2 id="_8">快捷键问题</h2>
+<h3 id="_9">问题：快捷键不生效</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">verbose</span> map <span class="p">&lt;</span>快捷键<span class="p">&gt;</span>
+</code></pre></div>
+<p>例如：<code>:verbose map gd</code></p>
+<p><strong>常见原因</strong>：</p>
+<ol>
+<li>快捷键被其他插件覆盖</li>
+<li>只在特定模式生效</li>
+<li>需要 Leader 键（默认 Space）</li>
+</ol>
+<h3 id="leader">问题：Leader 键是什么</h3>
+<p>NvChad 默认 Leader = <code>Space</code></p>
+<p>所以 <code>&lt;leader&gt;ff</code> = <code>Space + ff</code></p>
+<hr />
+<h2 id="_10">性能问题</h2>
+<h3 id="_11">问题：编辑大文件卡顿</h3>
+<p><strong>临时禁用功能</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSBufDisable <span class="nb">highlight</span>
+<span class="p">:</span>LspStop
+</code></pre></div>
+<p><strong>长期方案</strong>：配置大文件自动禁用</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 在 autocmd 中检测文件大小</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;BufReadPre&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">file_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">getfsize</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">expand</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">file_size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="kr">then</span><span class="w">  </span><span class="c1">-- 1MB</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;TSBufDisable highlight&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="_12">问题：内存占用高</h3>
+<p><strong>检查 Buffer 数量</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">buffers</span>
+</code></pre></div>
+<p><strong>清理不用的 Buffer</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">bd</span> <span class="p">&lt;</span>编号<span class="p">&gt;</span>
+<span class="c">&quot; 或关闭所有隐藏 buffer</span>
+<span class="p">:</span>%<span class="k">bd</span><span class="p">|</span><span class="k">e</span>#
+</code></pre></div>
+<hr />
+<h2 id="_13">网络问题</h2>
+<h3 id="_14">问题：插件下载失败</h3>
+<p><strong>设置代理</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在 shell 中</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span>http://127.0.0.1:7890
+nvim
+</code></pre></div>
+<p><strong>或在 Neovim 中</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">vim</span><span class="p">.</span><span class="py">env</span><span class="p">.</span><span class="py">https_proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:7890&quot;</span>
+</code></pre></div>
+<h3 id="mason_2">问题：Mason 下载超时</h3>
+<p><strong>增加超时时间</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mason&quot;</span><span class="p">).</span><span class="nf">setup</span><span class="p">({</span>
+<span class="w">  </span><span class="nv">max_concurrent_installers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="_15">重置一切</h2>
+<p>如果问题无法解决，可以完全重置：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 备份当前配置</span>
+mv<span class="w"> </span>~/.config/nvim<span class="w"> </span>~/.config/nvim.bak
+
+<span class="c1"># 2. 清理所有数据</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.local/share/nvim
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.local/state/nvim
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.cache/nvim
+
+<span class="c1"># 3. 重新克隆配置</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Dwsy/nvim-config<span class="w"> </span>~/.config/nvim
+
+<span class="c1"># 4. 重新启动</span>
+nvim
+</code></pre></div>
+<hr />
+<h2 id="_16">获取帮助</h2>
+<h3 id="_17">查看健康状态</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>checkhealth
+</code></pre></div>
+<p>这会检查所有组件状态。</p>
+<h3 id="_18">查看日志</h3>
 <table>
 <thead>
 <tr>
 <th>命令</th>
-<th>功能</th>
+<th>内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>:tabnew</code></td>
-<td>新 tab</td>
+<td><code>:LspLog</code></td>
+<td>LSP 日志</td>
 </tr>
 <tr>
-<td><code>:tabedit 文件</code></td>
-<td>打开到新 tab</td>
+<td><code>:MasonLog</code></td>
+<td>Mason 日志</td>
 </tr>
 <tr>
-<td><code>:tabc</code></td>
-<td>关 tab</td>
-</tr>
-<tr>
-<td><code>gt</code> / <code>gT</code></td>
-<td>下一个 / 上一个</td>
-</tr>
-<tr>
-<td><code>:number gt</code></td>
-<td>跳转到第 N 个 tab</td>
-</tr>
-<tr>
-<td><code>:tabs</code></td>
-<td>查看所有 tab</td>
+<td><code>:messages</code></td>
+<td>Neovim 消息</td>
 </tr>
 </tbody>
 </table>
-<h3 id="buffers">Buffers（更重要）</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Space + bb</code></td>
-<td>切 buffer</td>
-</tr>
-<tr>
-<td><code>Space + bd</code></td>
-<td>关 buffer</td>
-</tr>
-<tr>
-<td><code>:buffers</code></td>
-<td>列出所有 buffer</td>
-</tr>
-<tr>
-<td><code>:bn</code> / <code>:bp</code></td>
-<td>下一个 / 上一个 buffer</td>
-</tr>
-</tbody>
-</table>
-<h3 id="window">Window 分屏</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+w s</code></td>
-<td>水平分屏</td>
-</tr>
-<tr>
-<td><code>Ctrl+w v</code></td>
-<td>垂直分屏</td>
-</tr>
-<tr>
-<td><code>Ctrl+w h/j/k/l</code></td>
-<td>切换窗口</td>
-</tr>
-<tr>
-<td><code>Ctrl+w =</code></td>
-<td>均分窗口</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_11">六、推荐布局方案</h2>
-<h3 id="1">场景 1：全栈开发</h3>
-<p><strong>Tab 1：前端</strong>
-<div class="highlight"><pre><span></span><code>┌─────────────────┐
-│ App.vue      │ main.ts  │
-└─────────────────┘
-</code></pre></div>
-快捷键：<code>Space+bb</code> 切换文件</p>
-<p><strong>Tab 2：后端</strong>
-<div class="highlight"><pre><span></span><code>┌──────────────────────┐
-│ Main.java   │ Service.java │
-└──────────────────────┘
-</code></pre></div>
-快捷键：<code>Space+bb</code> 切换文件</p>
-<p><strong>Tab 3：文档 / 配置</strong>
-<div class="highlight"><pre><span></span><code>┌──────────────────┐
-│ README.md │ pom.xml │
-└──────────────────┘
-</code></pre></div></p>
-<h3 id="2-tab">场景 2：专注单 Tab（高手模式）</h3>
-<p>只用 1 个 tab + buffer 列表：</p>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 列出所有打开的文件</span>
-</code></pre></div>
-<p>优点：
-- 更少的上下文切换
-- 专注当前任务
-- Buffer 之间快速跳转</p>
-<hr />
-<h2 id="_12">七、一句话总结</h2>
-<p>🔥 <strong>在 nvim 里：</strong></p>
-<ul>
-<li><strong>Tabs</strong> = 工作区 / 场景（2-3 个即可）</li>
-<li><strong>Buffers</strong> = 文件（用 <code>Space+bb</code> 切换）</li>
-<li><strong>Windows</strong> = 分屏（用 <code>Ctrl+w</code> 管理）</li>
-</ul>
-<p><strong>90% 情况下你只需要 buffer，不需要多个 tab。</strong></p>
-<hr />
-<h2 id="_13">八、从现在开始的工作流建议</h2>
-<h3 id="_14">快速启动</h3>
-<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>~/project
-</code></pre></div>
-<h3 id="tab_7">打开新文件（到当前 Tab）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">e</span> src/Main.java
-Space <span class="p">+</span> bb      <span class="c">&quot; 看看打开了哪些文件</span>
-</code></pre></div>
-<h3 id="_15">不同场景切换</h3>
-<div class="highlight"><pre><span></span><code>gt              <span class="c">&quot; 下一个 tab</span>
-gT              <span class="c">&quot; 上一个 tab</span>
-Space <span class="p">+</span> bb      <span class="c">&quot; 在 tab 内切文件</span>
-</code></pre></div>
-<h3 id="_16">查看全局位置</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>          <span class="c">&quot; 你跳过哪些地方</span>
-Space <span class="p">+</span> <span class="k">fo</span>      <span class="c">&quot; 最近打开的文件</span>
+<h3 id="_19">常用调试命令</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">lua</span> print<span class="p">(</span><span class="k">vim</span>.inspect<span class="p">(</span>xxx<span class="p">))</span>   <span class="c">&quot; 打印变量</span>
+<span class="p">:</span><span class="k">verbose</span> <span class="k">set</span> xxx?              <span class="c">&quot; 查看选项来源</span>
+<span class="p">:</span>scriptnames                   <span class="c">&quot; 已加载的脚本</span>
+<span class="p">:</span>map                           <span class="c">&quot; 所有映射</span>
 </code></pre></div>
 <hr />
-<h2 id="_17">九、进阶技巧（选看）</h2>
-<h3 id="tab_8">快速定位 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="c">&quot; 获取当前 tab 编号</span>
-<span class="p">:</span><span class="k">echom</span> tabpagenr<span class="p">()</span>
+<h2 id="_20">速查表</h2>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 诊断</span>
+<span class="p">:</span>checkhealth          全面健康检查
+<span class="p">:</span>LspInfo              LSP 状态
+<span class="p">:</span>TSInstallInfo        Treesitter 状态
+<span class="p">:</span>Mason                工具管理
+<span class="p">:</span>Lazy                 插件管理
 
-<span class="c">&quot; 快速跳转</span>
-<span class="m">5</span>gt    <span class="c">&quot; 跳到第 5 个 tab</span>
-</code></pre></div>
-<h3 id="_18">自动创建工作布局</h3>
-<p>创建 <code>~/.config/nvim/session.vim</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c">&quot; Session 1: Frontend</span>
-<span class="k">tabedit</span> src/App.vue
-<span class="k">tabedit</span> src/main.<span class="k">ts</span>
+<span class="c">&quot; 重启</span>
+<span class="p">:</span>LspRestart           重启 LSP
+<span class="p">:</span>Lazy <span class="k">sync</span>            同步插件
+<span class="p">:</span>TSUpdate             更新语法
 
-<span class="c">&quot; Session 2: Backend</span>
-<span class="k">tabnew</span>
-<span class="k">tabedit</span> src/Main.java
-<span class="k">tabedit</span> src/Service.java
+<span class="c">&quot; 日志</span>
+<span class="p">:</span>LspLog               LSP 日志
+<span class="p">:</span>MasonLog             Mason 日志
+<span class="p">:</span><span class="k">messages</span>             消息历史
 
-<span class="c">&quot; 回到第一个 tab</span>
-<span class="m">1</span>gt
+<span class="c">&quot; 清理</span>
+<span class="p">:</span><span class="k">bd</span>                   关闭 Buffer
+<span class="p">:</span>%<span class="k">bd</span><span class="p">|</span><span class="k">e</span>#               关闭所有隐藏 Buffer
 </code></pre></div>
-<p>启动时加载：
-<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>-S<span class="w"> </span>session.vim
-</code></pre></div></p>
-<hr />
-<h2 id="_19">总结速查</h2>
-<p><strong>今天必学的 5 个快捷键：</strong></p>
-<div class="highlight"><pre><span></span><code>Ctrl<span class="p">+</span><span class="k">o</span>        后退到上一个位置
-Ctrl<span class="p">+</span><span class="k">i</span>        前进到下一个位置
-Space<span class="p">+</span>bb      切换 buffer
-gt            下一个 <span class="k">tab</span>
-gT            上一个 <span class="k">tab</span>
-</code></pre></div>
-<p><strong>3 个命令一定记得：</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>        查看跳转历史
-<span class="p">:</span><span class="k">tabnew</span>       新建 <span class="k">tab</span>
-<span class="p">:</span><span class="k">tabc</span>         关闭 <span class="k">tab</span>
-</code></pre></div>
-<p>从现在开始，你已经掌握了 Vim 的"导航系统"，可以像真正的 Vim 用户一样高效工作了！</p>
 
 
 

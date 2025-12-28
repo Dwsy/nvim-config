@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="GIT_INTEGRATION.html">
+        <link rel="prev" href="TELESCOPE.html">
       
       
-        <link rel="next" href="TABUFLINE_SESSION.html">
+        <link rel="next" href="NAVIGATION.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>导航与 Tabs - NvChad 配置指南</title>
+        <title>Git 集成 - NvChad 配置指南</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nvim-tabs" class="md-skip">
+        <a href="#git" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              导航与 Tabs
+              Git 集成
             
           </span>
         </div>
@@ -279,10 +279,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="LSP_GUIDE.html" class="md-tabs__link">
           
   
@@ -299,12 +301,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="NAVIGATION.html" class="md-tabs__link">
           
   
@@ -587,28 +587,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -626,7 +629,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -697,98 +700,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="GIT_INTEGRATION.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Git 集成
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    进阶使用
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    进阶使用
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
     
   
   
@@ -808,7 +719,7 @@
   <span class="md-ellipsis">
     
   
-    导航与 Tabs
+    Git 集成
   
 
     
@@ -819,14 +730,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="NAVIGATION.html" class="md-nav__link md-nav__link--active">
+      <a href="GIT_INTEGRATION.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    导航与 Tabs
+    Git 集成
   
 
     
@@ -852,22 +763,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jump-history" class="md-nav__link">
+  <a href="#git_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第一部分：跳转历史 (Jump History)
+        已集成的 Git 功能
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="第一部分：跳转历史 (Jump History)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行内 Git 标记
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hunk 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hunk 操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#hunk_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心概念：3 套历史系统
+        什么是 Hunk？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hunk_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导航 Hunk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hunk_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hunk 操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战流程
       
     </span>
   </a>
@@ -880,22 +846,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#git-blame" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一、最重要的两个：前进 / 后退
+        Git Blame
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="一、最重要的两个：前进 / 后退">
+    <nav class="md-nav" aria-label="Git Blame">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⬅️ 后退（回到上一个位置）
+        查看当前行的提交信息
       
     </span>
   </a>
@@ -903,10 +869,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#blame" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ➡️ 前进（回到刚才的位置）
+        开启行内 Blame（持续显示）
       
     </span>
   </a>
@@ -919,13 +885,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#diff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        二、能回退什么？
+        Diff 查看
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Diff 查看">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看当前文件的修改
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与特定提交对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关闭 Diff 视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -933,58 +938,19 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、查看跳转历史
+        整体操作
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三、查看跳转历史">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-jump-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        方法 1️⃣：查看 Jump List（最重要）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2change-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        方法 2️⃣：查看修改历史（Change List）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#buffer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四、文件与 Buffer 历史
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四、文件与 Buffer 历史">
+    <nav class="md-nav" aria-label="整体操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        最近打开的文件
+        暂存整个文件
       
     </span>
   </a>
@@ -992,60 +958,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#buffer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        已打开文件切换（Buffer）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五、LSP + 导航的黄金组合
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        六、必须记住的 6 个快捷键
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常见疑问
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="常见疑问">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qctrli-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q：Ctrl+i 和 Tab 冲突？
+        撤销整个文件修改
       
     </span>
   </a>
@@ -1053,160 +969,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#q" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q：有没有"时间轴式撤销"？
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tabs-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第二部分：Tabs 管理（3 个层级）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="第二部分：Tabs 管理（3 个层级）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#90" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概念澄清：90% 新手会混
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        一、基础 Tab 操作
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一、基础 Tab 操作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        新建 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关闭当前 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tabs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        在 Tabs 之间切换（最常用）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        跳到指定 tab（非常快）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tabs_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        查看所有 Tabs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nvchad" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        二、NvChad 推荐方式（更高效）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、正确的使用姿势（重点）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="三、正确的使用姿势（重点）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ 不推荐：Tab 思维（VS Code）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffer-vim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ 推荐：Buffer 思维（Vim）
+        撤销暂存
       
     </span>
   </a>
@@ -1219,22 +985,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#git_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用终端进行 Git 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用终端进行 Git 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四、实操方案（基于你当前的截图）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="四、实操方案（基于你当前的截图）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第一步：简化 Tab 数量
+        打开终端
       
     </span>
   </a>
@@ -1242,21 +1008,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tab_5" class="md-nav__link">
+  <a href="#git_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第二步：在一个 Tab 里切文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        第三步：快速左右切 Tab
+        常用 Git 命令
       
     </span>
   </a>
@@ -1269,22 +1024,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#telescope-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telescope Git 集成
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telescope Git 集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        五、速查表（收藏级）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="五、速查表（收藏级）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tabs_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tabs 操作
+        查看提交历史
       
     </span>
   </a>
@@ -1292,10 +1047,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#buffers" class="md-nav__link">
+  <a href="#git_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Buffers（更重要）
+        查看 Git 状态
       
     </span>
   </a>
@@ -1303,49 +1058,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Window 分屏
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        六、推荐布局方案
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="六、推荐布局方案">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 1：全栈开发
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        场景 2：专注单 Tab（高手模式）
+        查看分支
       
     </span>
   </a>
@@ -1361,41 +1077,30 @@
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        七、一句话总结
+        完整工作流示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="完整工作流示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        场景：完成一个功能并提交
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        八、从现在开始的工作流建议
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="八、从现在开始的工作流建议">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速启动
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tab_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        打开新文件（到当前 Tab）
+        场景：撤销某处修改
       
     </span>
   </a>
@@ -1406,7 +1111,35 @@
   <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        不同场景切换
+        场景：查看某行是谁写的
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用快捷键速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用快捷键速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hunk_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hunk 导航
       
     </span>
   </a>
@@ -1414,10 +1147,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#gitsigns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        查看全局位置
+        Gitsigns 命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telescope-git_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telescope Git
       
     </span>
   </a>
@@ -1433,46 +1177,29 @@
   <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
-        九、进阶技巧（选看）
+        配置自定义快捷键（可选）
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="九、进阶技巧（选看）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tab_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        快速定位 Tab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        自动创建工作布局
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#git_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结速查
+        与命令行 Git 配合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
       
     </span>
   </a>
@@ -1483,6 +1210,95 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NAVIGATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1660,469 +1476,266 @@
   
 
 
-<h1 id="nvim-tabs">Nvim 导航与 Tabs 管理完全指南</h1>
-<h2 id="jump-history">第一部分：跳转历史 (Jump History)</h2>
-<h3 id="3">核心概念：3 套历史系统</h3>
+<h1 id="git">Git 集成指南</h1>
+<h2 id="git_1">已集成的 Git 功能</h2>
+<p>NvChad 通过 <strong>Gitsigns</strong> 插件提供 Git 集成：</p>
 <table>
 <thead>
 <tr>
-<th>系统</th>
-<th>快捷键</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Jump List</td>
-<td><code>Ctrl+o</code> / <code>Ctrl+i</code></td>
-<td>光标位置跳转</td>
-</tr>
-<tr>
-<td>Change List</td>
-<td><code>g;</code> / <code>g,</code></td>
-<td>编辑修改位置</td>
-</tr>
-<tr>
-<td>File History</td>
-<td><code>Space+fo</code></td>
-<td>最近打开文件</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_1">一、最重要的两个：前进 / 后退</h2>
-<h3 id="_2">⬅️ 后退（回到上一个位置）</h3>
-<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">o</span>
-</code></pre></div>
-<h3 id="_3">➡️ 前进（回到刚才的位置）</h3>
-<div class="highlight"><pre><span></span><code>Ctrl <span class="p">+</span> <span class="k">i</span>
-</code></pre></div>
-<p><strong>记忆法：</strong>
-- <code>o</code> = older（更老的位置）
-- <code>i</code> = newer（更新的位置）
-- 和浏览器的 ⬅️➡️ 完全一样</p>
-<hr />
-<h2 id="_4">二、能回退什么？</h2>
-<p>所有"光标大移动"都能用 <code>Ctrl+o</code> / <code>Ctrl+i</code> 回退：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>跳转定义</td>
-<td><code>gd</code></td>
-</tr>
-<tr>
-<td>查看引用</td>
-<td><code>gr</code></td>
-</tr>
-<tr>
-<td>搜索</td>
-<td><code>/xxx</code></td>
-</tr>
-<tr>
-<td>文件开头/末尾</td>
-<td><code>gg</code> / <code>G</code></td>
-</tr>
-<tr>
-<td>文件间跳转</td>
-<td><code>:e file.js</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_5">三、查看跳转历史</h2>
-<h3 id="1-jump-list">方法 1️⃣：查看 Jump List（最重要）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>
-</code></pre></div>
-<p>输出示例：
-<div class="highlight"><pre><span></span><code> jump line  col file/text
-   1   86   10  src/Main.java
-   2   34    2  src/Service.java
-   3   12    5  src/Util.java
-</code></pre></div></p>
-<p><code>Ctrl+o</code> / <code>Ctrl+i</code> 就是在这个列表里移动。</p>
-<h3 id="2change-list">方法 2️⃣：查看修改历史（Change List）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">changes</span>
-</code></pre></div>
-<p>对应快捷键：
-<div class="highlight"><pre><span></span><code><span class="k">g</span>;    上一个修改点
-<span class="k">g</span><span class="p">,</span>    下一个修改点
-</code></pre></div></p>
-<hr />
-<h2 id="buffer">四、文件与 Buffer 历史</h2>
-<h3 id="_6">最近打开的文件</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">oldfiles</span>
-</code></pre></div>
-<p>或（NvChad 推荐）：
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> <span class="k">fo</span>
-</code></pre></div></p>
-<h3 id="buffer_1">已打开文件切换（Buffer）</h3>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb
-</code></pre></div>
-<p>在已打开文件之间来回切。</p>
-<hr />
-<h2 id="lsp">五、LSP + 导航的黄金组合</h2>
-<p>看代码 → 跳 → 回来</p>
-<div class="highlight"><pre><span></span><code><span class="nb">gd</span>          # 跳到定义
-Ctrl <span class="p">+</span> <span class="k">o</span>    # 回来
-Ctrl <span class="p">+</span> <span class="k">i</span>    # 再过去
-</code></pre></div>
-<p>👉 这三个是 Vim 用户的肌肉记忆。</p>
-<hr />
-<h2 id="6">六、必须记住的 6 个快捷键</h2>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
 <th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>gd</code></td>
-<td>跳到定义</td>
-</tr>
-<tr>
-<td><code>Ctrl+o</code></td>
-<td>后退</td>
-</tr>
-<tr>
-<td><code>Ctrl+i</code></td>
-<td>前进</td>
-</tr>
-<tr>
-<td><code>:jumps</code></td>
-<td>查看跳转历史</td>
-</tr>
-<tr>
-<td><code>g;</code></td>
-<td>上一个修改点</td>
-</tr>
-<tr>
-<td><code>Space+fo</code></td>
-<td>最近文件</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_7">常见疑问</h2>
-<h3 id="qctrli-tab">Q：<code>Ctrl+i</code> 和 <code>Tab</code> 冲突？</h3>
-<p>在终端里它们是同一个键，但 Vim 内部仍然区分 jump list。放心用就行。</p>
-<h3 id="q">Q：有没有"时间轴式撤销"？</h3>
-<p>有：<code>u</code> / <code>Ctrl+r</code>，那是内容历史，不是位置历史。</p>
-<hr />
-<hr />
-<h2 id="tabs-3">第二部分：Tabs 管理（3 个层级）</h2>
-<h3 id="90">概念澄清：90% 新手会混</h3>
-<table>
-<thead>
-<tr>
-<th>层级</th>
 <th>说明</th>
-<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Buffer</strong> ✅ 最重要</td>
-<td>一个文件 = 一个 buffer</td>
-<td>README.md / Main.java</td>
+<td>行内标记</td>
+<td>左侧显示修改/新增/删除标记</td>
 </tr>
 <tr>
-<td><strong>Window</strong></td>
-<td>屏幕里的分屏</td>
-<td><code>:sp</code> / <code>:vsp</code></td>
+<td>Blame</td>
+<td>查看每行的提交者信息</td>
 </tr>
 <tr>
-<td><strong>Tab</strong></td>
-<td>一组 window/buffer 的工作区</td>
-<td>顶部标签页列表</td>
+<td>Hunk 操作</td>
+<td>暂存/撤销单个代码块</td>
+</tr>
+<tr>
+<td>Diff 查看</td>
+<td>对比当前修改</td>
 </tr>
 </tbody>
 </table>
-<p>👉 你平时其实主要在"切 buffer"，不是 tab。</p>
 <hr />
-<h2 id="tab">一、基础 Tab 操作</h2>
-<h3 id="tab_1">新建 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabnew</span>
+<h2 id="git_2">行内 Git 标记</h2>
+<p>编辑文件时，左侧会显示 Git 状态：</p>
+<table>
+<thead>
+<tr>
+<th>标记</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>│</code> 绿色</td>
+<td>新增的行</td>
+</tr>
+<tr>
+<td><code>│</code> 蓝色</td>
+<td>修改的行</td>
+</tr>
+<tr>
+<td><code>_</code> 红色</td>
+<td>删除的行（在下方显示）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="hunk">Hunk 操作</h2>
+<h3 id="hunk_1">什么是 Hunk？</h3>
+<p>Hunk = 一块连续的修改。比如连续修改了 3 行，这 3 行就是一个 Hunk。</p>
+<h3 id="hunk_2">导航 Hunk</h3>
+<div class="highlight"><pre><span></span><code>]<span class="k">c</span>          <span class="c">&quot; 跳到下一个 Hunk</span>
+[<span class="k">c</span>          <span class="c">&quot; 跳到上一个 Hunk</span>
 </code></pre></div>
-<p>打开文件到新 tab：
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabedit</span> README.md
+<h3 id="hunk_3">Hunk 操作</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 暂存当前 Hunk</span>
+<span class="p">:</span>Gitsigns stage_hunk
+
+<span class="c">&quot; 撤销当前 Hunk（恢复原状）</span>
+<span class="p">:</span>Gitsigns reset_hunk
+
+<span class="c">&quot; 预览当前 Hunk 的修改</span>
+<span class="p">:</span>Gitsigns preview_hunk
+</code></pre></div>
+<h3 id="_1">实战流程</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 编辑代码</span>
+<span class="k">i</span>
+...修改代码...
+Esc
+
+<span class="c">&quot; 2. 查看这块改了什么</span>
+<span class="p">:</span>Gitsigns preview_hunk
+
+<span class="c">&quot; 3. 确认无误，暂存</span>
+<span class="p">:</span>Gitsigns stage_hunk
+
+<span class="c">&quot; 4. 跳到下一处修改</span>
+]<span class="k">c</span>
+
+<span class="c">&quot; 5. 如果这处不想要，撤销</span>
+<span class="p">:</span>Gitsigns reset_hunk
+</code></pre></div>
+<hr />
+<h2 id="git-blame">Git Blame</h2>
+<h3 id="_2">查看当前行的提交信息</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns blame_line
+</code></pre></div>
+<p>显示格式：
+<div class="highlight"><pre><span></span><code>作者 (时间) 提交信息
 </code></pre></div></p>
-<h3 id="tab_2">关闭当前 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabclose</span>
-<span class="p">:</span><span class="k">tabc</span>          <span class="c">&quot; 缩写</span>
+<h3 id="blame">开启行内 Blame（持续显示）</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns toggle_current_line_blame
 </code></pre></div>
-<h3 id="tabs">在 Tabs 之间切换（最常用）</h3>
-<div class="highlight"><pre><span></span><code>gt     下一个 <span class="k">tab</span>
-gT     上一个 <span class="k">tab</span>
+<p>每行末尾会显示提交者信息。</p>
+<hr />
+<h2 id="diff">Diff 查看</h2>
+<h3 id="_3">查看当前文件的修改</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns <span class="k">diffthis</span>
 </code></pre></div>
-<h3 id="tab_3">跳到指定 tab（非常快）</h3>
-<div class="highlight"><pre><span></span><code><span class="m">1</span>gt    跳到第 <span class="m">1</span> 个 <span class="k">tab</span>
-<span class="m">2</span>gt    跳到第 <span class="m">2</span> 个 <span class="k">tab</span>
+<p>会在分屏中显示与 HEAD 的对比。</p>
+<h3 id="_4">与特定提交对比</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns <span class="k">diffthis</span> <span class="p">~</span><span class="m">2</span>
 </code></pre></div>
-<h3 id="tabs_1">查看所有 Tabs</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabs</span>
+<p>与 HEAD~2 对比。</p>
+<h3 id="diff_1">关闭 Diff 视图</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">q</span>          <span class="c">&quot; 关闭 diff 窗口</span>
 </code></pre></div>
 <hr />
-<h2 id="nvchad">二、NvChad 推荐方式（更高效）</h2>
-<p>NvChad 默认鼓励用 <strong>buffer</strong>，而不是 tab。</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Buffer 切换列表</td>
-<td><code>Space + bb</code></td>
-</tr>
-<tr>
-<td>关闭当前 buffer</td>
-<td><code>Space + bd</code></td>
-</tr>
-</tbody>
-</table>
-<p>👉 这比 tabs 高效很多。</p>
-<hr />
-<h2 id="_8">三、正确的使用姿势（重点）</h2>
-<h3 id="tab-vs-code">❌ 不推荐：Tab 思维（VS Code）</h3>
-<div class="highlight"><pre><span></span><code>一个文件一个 tab
-tab 数量无限增长
+<h2 id="_5">整体操作</h2>
+<h3 id="_6">暂存整个文件</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns stage_buffer
 </code></pre></div>
-<h3 id="buffer-vim">✅ 推荐：Buffer 思维（Vim）</h3>
-<div class="highlight"><pre><span></span><code>Tab = 场景 / 工作区
-Buffer = 文件
+<h3 id="_7">撤销整个文件修改</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns reset_buffer
+</code></pre></div>
+<h3 id="_8">撤销暂存</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns reset_buffer_index
+</code></pre></div>
+<hr />
+<h2 id="git_3">使用终端进行 Git 操作</h2>
+<h3 id="_9">打开终端</h3>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> <span class="k">h</span>   <span class="c">&quot; 水平终端</span>
+Space <span class="p">+</span> <span class="k">v</span>   <span class="c">&quot; 垂直终端</span>
+</code></pre></div>
+<h3 id="git_4">常用 Git 命令</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 状态查看</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
 
-Tab 1：前端（Vue / TS）
-  - App.vue
-  - main.ts
-  - config.ts
+<span class="c1"># 暂存</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;
 
-Tab 2：后端（Java）
-  - Main.java
-  - Service.java
-  - Util.java
+<span class="c1"># 提交</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: 添加新功能&quot;</span>
 
-Tab 3：文档
-  - README.md
-  - CHANGELOG.md
-</code></pre></div>
-<p><strong>在每个 Tab 里：</strong>
-- 用 <code>Space + bb</code> 切文件
-- 用 <code>Ctrl+w</code> 管分屏</p>
-<hr />
-<h2 id="_9">四、实操方案（基于你当前的截图）</h2>
-<h3 id="tab_4">第一步：简化 Tab 数量</h3>
-<p>只保留 2-3 个 tab：</p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">tabc</span>     <span class="c">&quot; 关闭不需要的 tab</span>
-</code></pre></div>
-<h3 id="tab_5">第二步：在一个 Tab 里切文件</h3>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 打开 buffer 列表</span>
+<span class="c1"># 推送拉取</span>
+git<span class="w"> </span>push
+git<span class="w"> </span>pull
 
-选择：
-  FillContext.java
-  FuzzyMatcher.<span class="nb">js</span>
-  README.md
-</code></pre></div>
-<h3 id="tab_6">第三步：快速左右切 Tab</h3>
-<div class="highlight"><pre><span></span><code>gt        <span class="c">&quot; 下一个 tab</span>
-gT        <span class="c">&quot; 上一个 tab</span>
+<span class="c1"># 分支</span>
+git<span class="w"> </span>branch
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/new
+git<span class="w"> </span>merge<span class="w"> </span>main
 </code></pre></div>
 <hr />
-<h2 id="_10">五、速查表（收藏级）</h2>
-<h3 id="tabs_2">Tabs 操作</h3>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>:tabnew</code></td>
-<td>新 tab</td>
-</tr>
-<tr>
-<td><code>:tabedit 文件</code></td>
-<td>打开到新 tab</td>
-</tr>
-<tr>
-<td><code>:tabc</code></td>
-<td>关 tab</td>
-</tr>
-<tr>
-<td><code>gt</code> / <code>gT</code></td>
-<td>下一个 / 上一个</td>
-</tr>
-<tr>
-<td><code>:number gt</code></td>
-<td>跳转到第 N 个 tab</td>
-</tr>
-<tr>
-<td><code>:tabs</code></td>
-<td>查看所有 tab</td>
-</tr>
-</tbody>
-</table>
-<h3 id="buffers">Buffers（更重要）</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Space + bb</code></td>
-<td>切 buffer</td>
-</tr>
-<tr>
-<td><code>Space + bd</code></td>
-<td>关 buffer</td>
-</tr>
-<tr>
-<td><code>:buffers</code></td>
-<td>列出所有 buffer</td>
-</tr>
-<tr>
-<td><code>:bn</code> / <code>:bp</code></td>
-<td>下一个 / 上一个 buffer</td>
-</tr>
-</tbody>
-</table>
-<h3 id="window">Window 分屏</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+w s</code></td>
-<td>水平分屏</td>
-</tr>
-<tr>
-<td><code>Ctrl+w v</code></td>
-<td>垂直分屏</td>
-</tr>
-<tr>
-<td><code>Ctrl+w h/j/k/l</code></td>
-<td>切换窗口</td>
-</tr>
-<tr>
-<td><code>Ctrl+w =</code></td>
-<td>均分窗口</td>
-</tr>
-</tbody>
-</table>
+<h2 id="telescope-git">Telescope Git 集成</h2>
+<h3 id="_10">查看提交历史</h3>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> gc      <span class="c">&quot; Git commits</span>
+</code></pre></div>
+<p>在列表中选择提交可以查看详情。</p>
+<h3 id="git_5">查看 Git 状态</h3>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> gs      <span class="c">&quot; Git status</span>
+</code></pre></div>
+<p>显示所有修改的文件，可以快速跳转。</p>
+<h3 id="_11">查看分支</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Telescope git_branches
+</code></pre></div>
+<p>可以切换分支。</p>
 <hr />
-<h2 id="_11">六、推荐布局方案</h2>
-<h3 id="1">场景 1：全栈开发</h3>
-<p><strong>Tab 1：前端</strong>
-<div class="highlight"><pre><span></span><code>┌─────────────────┐
-│ App.vue      │ main.ts  │
-└─────────────────┘
-</code></pre></div>
-快捷键：<code>Space+bb</code> 切换文件</p>
-<p><strong>Tab 2：后端</strong>
-<div class="highlight"><pre><span></span><code>┌──────────────────────┐
-│ Main.java   │ Service.java │
-└──────────────────────┘
-</code></pre></div>
-快捷键：<code>Space+bb</code> 切换文件</p>
-<p><strong>Tab 3：文档 / 配置</strong>
-<div class="highlight"><pre><span></span><code>┌──────────────────┐
-│ README.md │ pom.xml │
-└──────────────────┘
-</code></pre></div></p>
-<h3 id="2-tab">场景 2：专注单 Tab（高手模式）</h3>
-<p>只用 1 个 tab + buffer 列表：</p>
-<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> bb    <span class="c">&quot; 列出所有打开的文件</span>
-</code></pre></div>
-<p>优点：
-- 更少的上下文切换
-- 专注当前任务
-- Buffer 之间快速跳转</p>
-<hr />
-<h2 id="_12">七、一句话总结</h2>
-<p>🔥 <strong>在 nvim 里：</strong></p>
-<ul>
-<li><strong>Tabs</strong> = 工作区 / 场景（2-3 个即可）</li>
-<li><strong>Buffers</strong> = 文件（用 <code>Space+bb</code> 切换）</li>
-<li><strong>Windows</strong> = 分屏（用 <code>Ctrl+w</code> 管理）</li>
-</ul>
-<p><strong>90% 情况下你只需要 buffer，不需要多个 tab。</strong></p>
-<hr />
-<h2 id="_13">八、从现在开始的工作流建议</h2>
-<h3 id="_14">快速启动</h3>
-<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>~/project
-</code></pre></div>
-<h3 id="tab_7">打开新文件（到当前 Tab）</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">e</span> src/Main.java
-Space <span class="p">+</span> bb      <span class="c">&quot; 看看打开了哪些文件</span>
-</code></pre></div>
-<h3 id="_15">不同场景切换</h3>
-<div class="highlight"><pre><span></span><code>gt              <span class="c">&quot; 下一个 tab</span>
-gT              <span class="c">&quot; 上一个 tab</span>
-Space <span class="p">+</span> bb      <span class="c">&quot; 在 tab 内切文件</span>
-</code></pre></div>
-<h3 id="_16">查看全局位置</h3>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>          <span class="c">&quot; 你跳过哪些地方</span>
-Space <span class="p">+</span> <span class="k">fo</span>      <span class="c">&quot; 最近打开的文件</span>
-</code></pre></div>
-<hr />
-<h2 id="_17">九、进阶技巧（选看）</h2>
-<h3 id="tab_8">快速定位 Tab</h3>
-<div class="highlight"><pre><span></span><code><span class="c">&quot; 获取当前 tab 编号</span>
-<span class="p">:</span><span class="k">echom</span> tabpagenr<span class="p">()</span>
+<h2 id="_12">完整工作流示例</h2>
+<h3 id="_13">场景：完成一个功能并提交</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 编写代码</span>
+...编辑...
+<span class="p">:</span><span class="k">w</span>
 
-<span class="c">&quot; 快速跳转</span>
-<span class="m">5</span>gt    <span class="c">&quot; 跳到第 5 个 tab</span>
-</code></pre></div>
-<h3 id="_18">自动创建工作布局</h3>
-<p>创建 <code>~/.config/nvim/session.vim</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c">&quot; Session 1: Frontend</span>
-<span class="k">tabedit</span> src/App.vue
-<span class="k">tabedit</span> src/main.<span class="k">ts</span>
+<span class="c">&quot; 2. 查看所有改动</span>
+Space <span class="p">+</span> gs              <span class="c">&quot; 查看修改了哪些文件</span>
 
-<span class="c">&quot; Session 2: Backend</span>
-<span class="k">tabnew</span>
-<span class="k">tabedit</span> src/Main.java
-<span class="k">tabedit</span> src/Service.java
+<span class="c">&quot; 3. 逐个 Hunk 审查</span>
+]<span class="k">c</span>                      <span class="c">&quot; 下一个修改</span>
+<span class="p">:</span>Gitsigns preview_hunk  <span class="c">&quot; 预览</span>
+<span class="p">:</span>Gitsigns stage_hunk    <span class="c">&quot; 暂存</span>
 
-<span class="c">&quot; 回到第一个 tab</span>
-<span class="m">1</span>gt
+<span class="c">&quot; 4. 打开终端提交</span>
+Space <span class="p">+</span> <span class="k">h</span>
+git commit <span class="p">-</span><span class="k">m</span> <span class="s2">&quot;feat: 完成用户登录功能&quot;</span>
+<span class="k">exit</span>
+
+<span class="c">&quot; 5. 推送</span>
+Space <span class="p">+</span> <span class="k">h</span>
+git push
+<span class="k">exit</span>
 </code></pre></div>
-<p>启动时加载：
-<div class="highlight"><pre><span></span><code>nv<span class="w"> </span>-S<span class="w"> </span>session.vim
-</code></pre></div></p>
+<h3 id="_14">场景：撤销某处修改</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 找到要撤销的位置</span>
+]<span class="k">c</span>          <span class="c">&quot; 或 [c 导航</span>
+
+<span class="c">&quot; 2. 查看这里改了什么</span>
+<span class="p">:</span>Gitsigns preview_hunk
+
+<span class="c">&quot; 3. 撤销这个修改</span>
+<span class="p">:</span>Gitsigns reset_hunk
+</code></pre></div>
+<h3 id="_15">场景：查看某行是谁写的</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 光标移到目标行</span>
+<span class="c">&quot; 2. 查看 Blame</span>
+<span class="p">:</span>Gitsigns blame_line
+
+<span class="c">&quot; 显示：</span>
+<span class="c">&quot; John (2025-01-15) feat: 添加登录验证</span>
+</code></pre></div>
 <hr />
-<h2 id="_19">总结速查</h2>
-<p><strong>今天必学的 5 个快捷键：</strong></p>
-<div class="highlight"><pre><span></span><code>Ctrl<span class="p">+</span><span class="k">o</span>        后退到上一个位置
-Ctrl<span class="p">+</span><span class="k">i</span>        前进到下一个位置
-Space<span class="p">+</span>bb      切换 buffer
-gt            下一个 <span class="k">tab</span>
-gT            上一个 <span class="k">tab</span>
+<h2 id="_16">常用快捷键速查</h2>
+<h3 id="hunk_4">Hunk 导航</h3>
+<div class="highlight"><pre><span></span><code>]<span class="k">c</span>          下一个 Hunk
+[<span class="k">c</span>          上一个 Hunk
 </code></pre></div>
-<p><strong>3 个命令一定记得：</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">jumps</span>        查看跳转历史
-<span class="p">:</span><span class="k">tabnew</span>       新建 <span class="k">tab</span>
-<span class="p">:</span><span class="k">tabc</span>         关闭 <span class="k">tab</span>
+<h3 id="gitsigns">Gitsigns 命令</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>Gitsigns stage_hunk           暂存当前 Hunk
+<span class="p">:</span>Gitsigns reset_hunk           撤销当前 Hunk
+<span class="p">:</span>Gitsigns preview_hunk         预览当前 Hunk
+<span class="p">:</span>Gitsigns stage_buffer         暂存整个文件
+<span class="p">:</span>Gitsigns reset_buffer         撤销整个文件
+<span class="p">:</span>Gitsigns blame_line           查看当前行 Blame
+<span class="p">:</span>Gitsigns toggle_current_line_blame   开关行内 Blame
+<span class="p">:</span>Gitsigns <span class="k">diffthis</span>             查看 Diff
 </code></pre></div>
-<p>从现在开始，你已经掌握了 Vim 的"导航系统"，可以像真正的 Vim 用户一样高效工作了！</p>
+<h3 id="telescope-git_1">Telescope Git</h3>
+<div class="highlight"><pre><span></span><code>Space<span class="p">+</span>gc    提交历史
+Space<span class="p">+</span>gs    Git 状态
+</code></pre></div>
+<hr />
+<h2 id="_17">配置自定义快捷键（可选）</h2>
+<p>编辑 <code>~/.config/nvim/lua/mappings.lua</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="py">set</span>
+
+<span class="c1">-- Git 相关快捷键</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:Gitsigns stage_hunk&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Stage hunk&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gr&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:Gitsigns reset_hunk&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Reset hunk&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:Gitsigns preview_hunk&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Preview hunk&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:Gitsigns blame_line&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Blame line&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:Gitsigns diffthis&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Diff this&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<p>这样就可以用 <code>Space + gs</code> 暂存 Hunk 等。</p>
+<hr />
+<h2 id="git_6">与命令行 Git 配合</h2>
+<p>Neovim 内的 Git 操作主要用于：
+- 查看修改（Diff / Blame）
+- 精细控制（Hunk 级别暂存/撤销）</p>
+<p>复杂操作仍建议用终端：
+- 合并冲突解决
+- 交互式 rebase
+- 复杂的分支操作</p>
+<div class="highlight"><pre><span></span><code>Space <span class="p">+</span> <span class="k">h</span>       <span class="c">&quot; 打开终端</span>
+git rebase <span class="p">-</span><span class="k">i</span> HEAD<span class="p">~</span><span class="m">3</span>
+<span class="k">exit</span>
+</code></pre></div>
+<hr />
+<h2 id="_18">一句话总结</h2>
+<p><strong><code>]c</code> 导航 Hunk + <code>:Gitsigns stage_hunk</code> 暂存 + <code>:Gitsigns preview_hunk</code> 预览 = 精细版本控制</strong></p>
+<p>比命令行 <code>git add -p</code> 更直观，是代码审查和精细提交的利器。</p>
 
 
 

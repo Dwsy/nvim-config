@@ -1,0 +1,2255 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="完整的 Neovim + NvChad 配置教程和文档">
+      
+      
+      
+      
+        <link rel="prev" href="VIM_KEYS.html">
+      
+      
+        <link rel="next" href="LSP_GUIDE.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>高效编辑技巧 - NvChad 配置指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="index.html" title="NvChad 配置指南" class="md-header__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NvChad 配置指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              高效编辑技巧
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white"  aria-label="切换亮色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换亮色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="grey"  aria-label="切换暗色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="README.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  配置指南
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="WORKFLOW.html" class="md-tabs__link">
+          
+  
+  
+  快速入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="LSP_GUIDE.html" class="md-tabs__link">
+          
+  
+  
+  核心功能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="NAVIGATION.html" class="md-tabs__link">
+          
+  
+  
+  进阶使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="TROUBLESHOOTING.html" class="md-tabs__link">
+          
+  
+  
+  参考
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="NvChad 配置指南" class="md-nav__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NvChad 配置指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    快速入门
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WORKFLOW.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="VIM_KEYS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim 快捷键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高效编辑技巧
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="EDITING_TIPS.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高效编辑技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心理念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本对象（最重要）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文本对象（最重要）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内部 vs 包含
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用文本对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速选择
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视模式类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速选中
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多行编辑
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多行编辑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        块模式基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：多行注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：多行行尾加分号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：删除多行行首空格
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速替换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速替换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单词替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行内替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        智能替换技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复制粘贴进阶
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="复制粘贴进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        寄存器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用寄存器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        撤销与重做
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="撤销与重做">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        撤销到特定时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        撤销分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搜索与跳转
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="搜索与跳转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速搜索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行内跳转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：快速到达引号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码折叠
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码折叠">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础折叠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基于缩进折叠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基于语法折叠
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        宏录制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="宏录制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：批量添加引号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缩进操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缩进操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单行缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多行缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全文自动缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数字操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字增减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战：批量修改序号
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用组合速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用组合速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复制类
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LSP_GUIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP 代码智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TELESCOPE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telescope 搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GIT_INTEGRATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git 集成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NAVIGATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TABUFLINE_SESSION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabufline & Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TROUBLESHOOTING.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    故障排查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFIG_LOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">高效编辑技巧</h1>
+<h2 id="_2">核心理念</h2>
+<p>Vim 的强大在于 <strong>组合</strong>：</p>
+<div class="highlight"><pre><span></span><code>操作符 + 动作 = 编辑命令
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>删除</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>修改（删除并进入插入模式）</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>复制</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>选择</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>w</code></td>
+<td>单词</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>到行尾</td>
+</tr>
+<tr>
+<td><code>}</code></td>
+<td>到段落尾</td>
+</tr>
+<tr>
+<td><code>iw</code></td>
+<td>内部单词</td>
+</tr>
+<tr>
+<td><code>i"</code></td>
+<td>引号内</td>
+</tr>
+<tr>
+<td><code>i{</code></td>
+<td>大括号内</td>
+</tr>
+</tbody>
+</table>
+<p><strong>组合示例</strong>：</p>
+<div class="highlight"><pre><span></span><code>dw      <span class="c">&quot; 删除单词</span>
+<span class="k">d</span>$      <span class="c">&quot; 删除到行尾</span>
+<span class="k">di</span><span class="s2">&quot;     &quot;</span> 删除引号内内容
+<span class="nb">ci</span>{     <span class="c">&quot; 修改大括号内内容</span>
+<span class="k">ya</span>}     <span class="c">&quot; 复制大括号及内容</span>
+</code></pre></div>
+<hr />
+<h2 id="_3">文本对象（最重要）</h2>
+<h3 id="vs">内部 vs 包含</h3>
+<table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i</code></td>
+<td>inner（内部）</td>
+<td><code>di"</code> 删除引号内容，保留引号</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>around（包含）</td>
+<td><code>da"</code> 删除引号及内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">常用文本对象</h3>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>说明</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iw</code> / <code>aw</code></td>
+<td>单词</td>
+<td>重命名变量</td>
+</tr>
+<tr>
+<td><code>i"</code> / <code>a"</code></td>
+<td>双引号</td>
+<td>修改字符串</td>
+</tr>
+<tr>
+<td><code>i'</code> / <code>a'</code></td>
+<td>单引号</td>
+<td>修改字符串</td>
+</tr>
+<tr>
+<td><code>i)</code> / <code>a)</code></td>
+<td>小括号</td>
+<td>修改参数</td>
+</tr>
+<tr>
+<td><code>i]</code> / <code>a]</code></td>
+<td>方括号</td>
+<td>修改数组</td>
+</tr>
+<tr>
+<td><code>i}</code> / <code>a}</code></td>
+<td>大括号</td>
+<td>修改代码块</td>
+</tr>
+<tr>
+<td><code>it</code> / <code>at</code></td>
+<td>HTML 标签</td>
+<td>修改标签内容</td>
+</tr>
+<tr>
+<td><code>ip</code> / <code>ap</code></td>
+<td>段落</td>
+<td>操作整段代码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">实战示例</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 光标在 &quot;hello&quot; 的 e 上</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="p">;</span>
+
+<span class="nx">ci</span><span class="s2">&quot;         // 修改引号内 → const msg = &quot;</span><span class="o">|</span><span class="s2">&quot;;</span>
+<span class="s2">di&quot;</span><span class="w">         </span><span class="c1">// 删除引号内 → const msg = &quot;&quot;;</span>
+<span class="nx">da</span><span class="s2">&quot;         // 删除含引号 → const msg = ;</span>
+<span class="s2">yi&quot;</span><span class="w">         </span><span class="c1">// 复制引号内 → 寄存器中是 hello world</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// 光标在函数参数中</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">test</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span><span class="w"> </span><span class="nx">arg2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="nx">di</span><span class="p">)</span><span class="w">         </span><span class="c1">// 删除括号内 → function test() {</span>
+<span class="nx">ci</span><span class="p">)</span><span class="w">         </span><span class="c1">// 修改括号内 → function test(|) {</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- 光标在标签内 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>content here<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+cit         // 修改标签内 → <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>|<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+dat         // 删除整个标签 → (空)
+</code></pre></div>
+<hr />
+<h2 id="_6">快速选择</h2>
+<h3 id="_7">可视模式类型</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>模式</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td>字符可视</td>
+<td>选择任意文本</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>行可视</td>
+<td>选择整行</td>
+</tr>
+<tr>
+<td><code>Ctrl+v</code></td>
+<td>块可视</td>
+<td>选择矩形区域</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">快速选中</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 选中单词</span>
+viw
+
+<span class="c">&quot; 选中引号内</span>
+<span class="k">vi</span>&quot;
+
+<span class="c">&quot; 选中括号内</span>
+<span class="k">vi</span><span class="p">)</span>
+<span class="k">vi</span>}
+<span class="k">vi</span>]
+
+<span class="c">&quot; 选中整个函数体</span>
+<span class="k">vi</span>{
+
+<span class="c">&quot; 选中段落</span>
+vip
+
+<span class="c">&quot; 全选</span>
+ggVG
+</code></pre></div>
+<hr />
+<h2 id="_9">多行编辑</h2>
+<h3 id="_10">块模式基础</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 进入块可视模式</span>
+Ctrl<span class="p">+</span><span class="k">v</span>
+
+<span class="c">&quot; 2. 选择区域</span>
+jjj         <span class="c">&quot; 向下选择</span>
+
+<span class="c">&quot; 3. 操作</span>
+I           <span class="c">&quot; 在选区前插入</span>
+A           <span class="c">&quot; 在选区后追加</span>
+<span class="k">d</span>           <span class="c">&quot; 删除选区</span>
+<span class="k">c</span>           <span class="c">&quot; 修改选区</span>
+
+<span class="c">&quot; 4. 输入内容（只在第一行显示）</span>
+<span class="sr">//</span>
+
+<span class="c">&quot; 5. 按 Esc，应用到所有行</span>
+Esc
+</code></pre></div>
+<h3 id="_11">实战：多行注释</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 选中要注释的行</span>
+Ctrl<span class="p">+</span><span class="k">v</span>
+jjjj        <span class="c">&quot; 选中 5 行</span>
+
+<span class="c">&quot; 行首插入</span>
+I
+<span class="sr">//</span>
+Esc
+
+<span class="c">&quot; 结果：5 行都加上了 //</span>
+</code></pre></div>
+<h3 id="_12">实战：多行行尾加分号</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 选中行</span>
+Ctrl<span class="p">+</span><span class="k">v</span>
+jjjj
+
+<span class="c">&quot; 到行尾</span>
+$
+
+<span class="c">&quot; 追加</span>
+A
+;
+Esc
+</code></pre></div>
+<h3 id="_13">实战：删除多行行首空格</h3>
+<div class="highlight"><pre><span></span><code>Ctrl<span class="p">+</span><span class="k">v</span>
+jjjj
+<span class="k">l</span>           <span class="c">&quot; 选择两个字符宽度</span>
+<span class="k">d</span>           <span class="c">&quot; 删除</span>
+</code></pre></div>
+<hr />
+<h2 id="_14">快速替换</h2>
+<h3 id="_15">单词替换</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在单词上</span>
+ciw         <span class="c">&quot; 删除单词并进入插入模式</span>
+新单词
+Esc
+</code></pre></div>
+<h3 id="_16">行内替换</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 替换到行尾</span>
+C           <span class="c">&quot; = c$</span>
+
+<span class="c">&quot; 替换整行</span>
+<span class="k">cc</span>          <span class="c">&quot; 或 S</span>
+</code></pre></div>
+<h3 id="_17">全局替换</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 替换当前行</span>
+<span class="p">:</span>s<span class="sr">/old/</span><span class="k">new</span>/<span class="k">g</span>
+
+<span class="c">&quot; 替换全文</span>
+<span class="p">:</span>%s<span class="sr">/old/</span><span class="k">new</span>/<span class="k">g</span>
+
+<span class="c">&quot; 替换并确认</span>
+<span class="p">:</span>%s<span class="sr">/old/</span><span class="k">new</span>/gc
+
+<span class="c">&quot; 替换指定范围（5-10行）</span>
+<span class="p">:</span><span class="m">5</span><span class="p">,</span><span class="m">10</span>s<span class="sr">/old/</span><span class="k">new</span>/<span class="k">g</span>
+
+<span class="c">&quot; 替换选中区域</span>
+<span class="c">&quot; 先 V 选中，然后</span>
+<span class="p">:</span><span class="s1">&#39;&lt;,&#39;</span><span class="p">&gt;</span>s<span class="sr">/old/</span><span class="k">new</span>/<span class="k">g</span>
+</code></pre></div>
+<h3 id="_18">智能替换技巧</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 只替换完整单词</span>
+<span class="p">:</span>%s<span class="sr">/\&lt;old\&gt;/</span><span class="k">new</span>/<span class="k">g</span>
+
+<span class="c">&quot; 保留大小写</span>
+<span class="p">:</span>%s<span class="sr">/old/</span><span class="k">new</span>/gi
+
+<span class="c">&quot; 使用捕获组</span>
+<span class="p">:</span>%s<span class="sr">/\(.*\)_old/</span>\<span class="m">1</span>_new/<span class="k">g</span>
+</code></pre></div>
+<hr />
+<h2 id="_19">复制粘贴进阶</h2>
+<h3 id="_20">寄存器</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 默认寄存器</span>
+yy          <span class="c">&quot; 复制到默认寄存器</span>
+<span class="k">p</span>           <span class="c">&quot; 从默认寄存器粘贴</span>
+
+<span class="c">&quot; 指定寄存器</span>
+<span class="c">&quot;ayy        &quot; 复制到寄存器 a</span>
+<span class="c">&quot;ap         &quot; 从寄存器 a 粘贴</span>
+
+<span class="c">&quot; 系统剪贴板</span>
+<span class="c">&quot;+y         &quot; 复制到系统剪贴板</span>
+<span class="c">&quot;+p         &quot; 从系统剪贴板粘贴</span>
+
+<span class="c">&quot; 查看所有寄存器</span>
+<span class="p">:</span><span class="k">registers</span>
+</code></pre></div>
+<h3 id="_21">常用寄存器</h3>
+<table>
+<thead>
+<tr>
+<th>寄存器</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>""</code></td>
+<td>默认寄存器</td>
+</tr>
+<tr>
+<td><code>"0</code></td>
+<td>上次复制内容（不含删除）</td>
+</tr>
+<tr>
+<td><code>"+</code></td>
+<td>系统剪贴板</td>
+</tr>
+<tr>
+<td><code>"_</code></td>
+<td>黑洞寄存器（删除不保存）</td>
+</tr>
+<tr>
+<td><code>"/</code></td>
+<td>上次搜索内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_22">实战技巧</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 删除但不影响剪贴板</span>
+<span class="c">&quot;_dd        &quot; 删除行到黑洞</span>
+
+<span class="c">&quot; 粘贴上次复制的内容（即使刚删除了东西）</span>
+<span class="c">&quot;0p</span>
+
+<span class="c">&quot; 复制到系统剪贴板后在其他应用粘贴</span>
+<span class="c">&quot;+yy        &quot; 复制行</span>
+<span class="c">&quot; 然后在浏览器 Cmd+V 粘贴</span>
+</code></pre></div>
+<hr />
+<h2 id="_23">撤销与重做</h2>
+<h3 id="_24">基础</h3>
+<div class="highlight"><pre><span></span><code><span class="k">u</span>           <span class="c">&quot; 撤销</span>
+Ctrl<span class="p">+</span><span class="k">r</span>      <span class="c">&quot; 重做</span>
+</code></pre></div>
+<h3 id="_25">撤销到特定时间</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">earlier</span> <span class="m">5</span>m     <span class="c">&quot; 回到 5 分钟前</span>
+<span class="p">:</span><span class="k">later</span> <span class="m">5</span>m       <span class="c">&quot; 前进 5 分钟</span>
+<span class="p">:</span><span class="k">earlier</span> <span class="m">10</span>     <span class="c">&quot; 撤销 10 次</span>
+</code></pre></div>
+<h3 id="_26">撤销分支</h3>
+<p>Vim 保存完整的撤销树，可以恢复任何历史状态：</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">undolist</span>       <span class="c">&quot; 查看撤销历史</span>
+<span class="k">g</span><span class="p">-</span>              <span class="c">&quot; 回到旧状态</span>
+<span class="k">g</span><span class="p">+</span>              <span class="c">&quot; 回到新状态</span>
+</code></pre></div>
+<hr />
+<h2 id="_27">搜索与跳转</h2>
+<h3 id="_28">快速搜索</h3>
+<div class="highlight"><pre><span></span><code>*           <span class="c">&quot; 搜索光标下单词（向下）</span>
+#           <span class="c">&quot; 搜索光标下单词（向上）</span>
+<span class="k">n</span>           <span class="c">&quot; 下一个匹配</span>
+N           <span class="c">&quot; 上一个匹配</span>
+</code></pre></div>
+<h3 id="_29">行内跳转</h3>
+<div class="highlight"><pre><span></span><code><span class="k">f</span>{char}     <span class="c">&quot; 跳到本行下一个 {char}</span>
+F{char}     <span class="c">&quot; 跳到本行上一个 {char}</span>
+<span class="k">t</span>{char}     <span class="c">&quot; 跳到 {char} 前一个字符</span>
+T{char}     <span class="c">&quot; 跳到 {char} 后一个字符</span>
+;           <span class="c">&quot; 重复上次 f/F/t/T</span>
+<span class="p">,</span>           <span class="c">&quot; 反向重复</span>
+</code></pre></div>
+<h3 id="_30">实战：快速到达引号</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在行首</span>
+const msg <span class="p">=</span> <span class="s2">&quot;hello&quot;</span>;
+
+<span class="k">f</span><span class="s2">&quot;          &quot;</span> 跳到第一个引号
+;           <span class="c">&quot; 跳到第二个引号</span>
+</code></pre></div>
+<hr />
+<h2 id="_31">代码折叠</h2>
+<h3 id="_32">基础折叠</h3>
+<div class="highlight"><pre><span></span><code>zc          <span class="c">&quot; 折叠当前块</span>
+zo          <span class="c">&quot; 展开当前块</span>
+za          <span class="c">&quot; 切换折叠状态</span>
+zM          <span class="c">&quot; 折叠所有</span>
+zR          <span class="c">&quot; 展开所有</span>
+</code></pre></div>
+<h3 id="_33">基于缩进折叠</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">set</span> <span class="nb">foldmethod</span><span class="p">=</span>indent
+</code></pre></div>
+<h3 id="_34">基于语法折叠</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">set</span> <span class="nb">foldmethod</span><span class="p">=</span><span class="nb">syntax</span>
+</code></pre></div>
+<hr />
+<h2 id="_35">宏录制</h2>
+<h3 id="_36">基础流程</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 开始录制到寄存器 q</span>
+qq
+
+<span class="c">&quot; 2. 执行操作</span>
+<span class="m">0</span>           <span class="c">&quot; 行首</span>
+<span class="k">f</span><span class="s2">&quot;          &quot;</span> 跳到引号
+<span class="nb">ci</span><span class="s2">&quot;         &quot;</span> 修改引号内
+新内容
+Esc
+<span class="k">j</span>           <span class="c">&quot; 下一行</span>
+
+<span class="c">&quot; 3. 停止录制</span>
+<span class="k">q</span>
+
+<span class="c">&quot; 4. 执行宏</span>
+@<span class="k">q</span>
+
+<span class="c">&quot; 5. 重复执行</span>
+@@          <span class="c">&quot; 重复上次宏</span>
+<span class="m">10</span>@<span class="k">q</span>        <span class="c">&quot; 执行 10 次</span>
+</code></pre></div>
+<h3 id="_37">实战：批量添加引号</h3>
+<p>原始数据：
+<div class="highlight"><pre><span></span><code>apple
+banana
+orange
+</code></pre></div></p>
+<p>目标：
+<div class="highlight"><pre><span></span><code>&quot;apple&quot;,
+&quot;banana&quot;,
+&quot;orange&quot;,
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 录制宏</span>
+qq
+<span class="m">0</span>I&quot;Esc
+A&quot;<span class="p">,</span>Esc
+<span class="k">j</span>
+<span class="k">q</span>
+
+<span class="c">&quot; 执行两次（处理剩余行）</span>
+<span class="m">2</span>@<span class="k">q</span>
+</code></pre></div>
+<hr />
+<h2 id="_38">缩进操作</h2>
+<h3 id="_39">单行缩进</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&gt;&gt;</span>          <span class="c">&quot; 增加缩进</span>
+<span class="p">&lt;&lt;</span>          <span class="c">&quot; 减少缩进</span>
+<span class="p">==</span>          <span class="c">&quot; 自动缩进</span>
+</code></pre></div>
+<h3 id="_40">多行缩进</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 选中后</span>
+<span class="p">&gt;</span>           <span class="c">&quot; 增加缩进</span>
+<span class="p">&lt;</span>           <span class="c">&quot; 减少缩进</span>
+<span class="p">=</span>           <span class="c">&quot; 自动缩进</span>
+
+<span class="c">&quot; 或指定范围</span>
+<span class="p">:</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">&gt;</span>      <span class="c">&quot; 5-10 行增加缩进</span>
+</code></pre></div>
+<h3 id="_41">全文自动缩进</h3>
+<div class="highlight"><pre><span></span><code>gg<span class="p">=</span>G
+</code></pre></div>
+<hr />
+<h2 id="_42">数字操作</h2>
+<h3 id="_43">数字增减</h3>
+<div class="highlight"><pre><span></span><code>Ctrl<span class="p">+</span><span class="k">a</span>      <span class="c">&quot; 数字 +1</span>
+Ctrl<span class="p">+</span><span class="k">x</span>      <span class="c">&quot; 数字 -1</span>
+<span class="m">5</span>Ctrl<span class="p">+</span><span class="k">a</span>     <span class="c">&quot; 数字 +5</span>
+</code></pre></div>
+<h3 id="_44">实战：批量修改序号</h3>
+<div class="highlight"><pre><span></span><code>item1
+item2
+item3
+</code></pre></div>
+<p>改为从 10 开始：</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在 1 上</span>
+<span class="m">9</span>Ctrl<span class="p">+</span><span class="k">a</span>     <span class="c">&quot; 变成 10</span>
+<span class="k">j</span>
+<span class="m">9</span>Ctrl<span class="p">+</span><span class="k">a</span>
+<span class="k">j</span>
+<span class="m">9</span>Ctrl<span class="p">+</span><span class="k">a</span>
+</code></pre></div>
+<hr />
+<h2 id="_45">常用组合速查</h2>
+<h3 id="_46">删除类</h3>
+<div class="highlight"><pre><span></span><code>dd          <span class="c">&quot; 删除行</span>
+D           <span class="c">&quot; 删除到行尾</span>
+dw          <span class="c">&quot; 删除单词</span>
+diw         <span class="c">&quot; 删除单词（不含空格）</span>
+daw         <span class="c">&quot; 删除单词（含空格）</span>
+<span class="k">di</span><span class="s2">&quot;         &quot;</span> 删除引号内
+da<span class="s2">&quot;         &quot;</span> 删除含引号
+<span class="k">di</span>{         <span class="c">&quot; 删除大括号内</span>
+<span class="nb">dip</span>         <span class="c">&quot; 删除段落</span>
+<span class="k">d</span>/pattern   <span class="c">&quot; 删除到匹配处</span>
+</code></pre></div>
+<h3 id="_47">修改类</h3>
+<div class="highlight"><pre><span></span><code><span class="k">cc</span>          <span class="c">&quot; 修改整行</span>
+C           <span class="c">&quot; 修改到行尾</span>
+<span class="k">cw</span>          <span class="c">&quot; 修改单词</span>
+ciw         <span class="c">&quot; 修改单词</span>
+<span class="nb">ci</span><span class="s2">&quot;         &quot;</span> 修改引号内
+<span class="nb">ci</span>{         <span class="c">&quot; 修改大括号内</span>
+cit         <span class="c">&quot; 修改标签内</span>
+</code></pre></div>
+<h3 id="_48">复制类</h3>
+<div class="highlight"><pre><span></span><code>yy          <span class="c">&quot; 复制行</span>
+Y           <span class="c">&quot; 复制行</span>
+yw          <span class="c">&quot; 复制单词</span>
+yiw         <span class="c">&quot; 复制单词</span>
+yi<span class="s2">&quot;         &quot;</span> 复制引号内
+yip         <span class="c">&quot; 复制段落</span>
+</code></pre></div>
+<hr />
+<h2 id="_49">一句话总结</h2>
+<p><strong><code>ci{对象}</code> 修改 + <code>di{对象}</code> 删除 + <code>.</code> 重复 = 编辑效率翻倍</strong></p>
+<p>记住文本对象（<code>iw</code>/<code>i"</code>/<code>i{</code>/<code>it</code>），配合操作符（<code>c</code>/<code>d</code>/<code>y</code>），你就掌握了 Vim 编辑的精髓。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 NvChad 配置 | 中文完整指南
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
