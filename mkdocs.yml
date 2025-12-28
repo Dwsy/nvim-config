@@ -7,17 +7,17 @@ theme:
   name: material
   language: zh
   palette:
-    # 暗夜模式（默认）
+    # 暗夜模式（默认）- 黑白灰风格
     - scheme: slate
-      primary: deep orange
-      accent: deep orange
+      primary: grey
+      accent: grey
       toggle:
         icon: material/brightness-7
         name: 切换亮色模式
-    # 亮色模式
+    # 亮色模式 - 黑白灰风格
     - scheme: default
-      primary: deep orange
-      accent: deep orange
+      primary: grey
+      accent: grey
       toggle:
         icon: material/brightness-4
         name: 切换暗色模式
