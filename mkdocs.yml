@@ -2,7 +2,7 @@ site_name: NvChad 配置指南
 site_description: 完整的 Neovim + NvChad 配置教程和文档
 repo_url: https://github.com/Dwsy/nvim-config
 repo_name: nvim-config
-use_directory_urls: true
+use_directory_urls: false
 
 theme:
   name: material
