@@ -1,0 +1,2738 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="完整的 Neovim + NvChad 配置教程和文档">
+      
+      
+      
+      
+        <link rel="prev" href="LSP_GUIDE.html">
+      
+      
+        <link rel="next" href="CONFORM_FORMAT.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Treesitter 语法高亮 - NvChad 配置指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#treesitter" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="index.html" title="NvChad 配置指南" class="md-header__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NvChad 配置指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Treesitter 语法高亮
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white"  aria-label="切换亮色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换亮色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="grey"  aria-label="切换暗色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="CONFIG_STRUCTURE.html" class="md-tabs__link">
+          
+  
+  
+  快速入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="LSP_GUIDE.html" class="md-tabs__link">
+          
+  
+  
+  核心功能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="LAZY_NVM.html" class="md-tabs__link">
+          
+  
+  
+  插件与工具
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="THEME_UI.html" class="md-tabs__link">
+          
+  
+  
+  个性化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="MULTILANG_SETUP.html" class="md-tabs__link">
+          
+  
+  
+  多语言开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="NAVIGATION.html" class="md-tabs__link">
+          
+  
+  
+  进阶使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="TROUBLESHOOTING.html" class="md-tabs__link">
+          
+  
+  
+  参考
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="NvChad 配置指南" class="md-nav__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NvChad 配置指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    快速入门
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFIG_STRUCTURE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置结构详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WORKFLOW.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="VIM_KEYS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim 快捷键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EDITING_TIPS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高效编辑技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LSP_GUIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP 代码智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treesitter 语法高亮
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="TREESITTER.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treesitter 语法高亮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是 Treesitter？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treesitter vs 传统高亮
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你的配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你的配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 重要：分支锁定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        已安装的语法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看语法状态
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="查看语法状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看已安装的语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看当前文件的语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装与管理语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装与管理语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        卸载语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看语法状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treesitter 功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Treesitter 功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 语法高亮
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 智能缩进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 文本对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 代码折叠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 增量选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置 Treesitter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置 Treesitter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整配置示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题排查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题排查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1module-nvim-treesitterconfigs-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题 1：module 'nvim-treesitter.configs' not found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题 2：语法高亮不工作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题 3：高亮颜色异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题 4：大文件卡顿
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题 5：语法编译失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treesitter 文本对象详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Treesitter 文本对象详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件语句操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环语句操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="性能优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 按需启用语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 增量解析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 查询缓存
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 查看性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treesitter-lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treesitter 与 LSP 协同
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Treesitter 与 LSP 协同">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区别与配合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 推荐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ 避免
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        速查表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="速查表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开关
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFORM_FORMAT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代码格式化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TELESCOPE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telescope 搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GIT_INTEGRATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git 集成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插件与工具
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    插件与工具
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LAZY_NVM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lazy 插件管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MASON.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mason 工具管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    个性化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    个性化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="THEME_UI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主题与 UI 定制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="KEYMAPS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快捷键自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多语言开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    多语言开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MULTILANG_SETUP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多语言环境配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NAVIGATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TABUFLINE_SESSION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabufline & Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PERFORMANCE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    性能优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TROUBLESHOOTING.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    故障排查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFIG_LOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="treesitter">Treesitter 语法高亮完全指南</h1>
+<h2 id="treesitter_1">什么是 Treesitter？</h2>
+<p>Treesitter 是 Neovim 的现代语法分析引擎，相比传统正则高亮：</p>
+<ul>
+<li>🎨 <strong>更准确</strong> - 基于 AST（抽象语法树），理解代码结构</li>
+<li>⚡ <strong>更快</strong> - 增量解析，性能优秀</li>
+<li>🧩 <strong>更智能</strong> - 支持代码折叠、文本对象、缩进</li>
+<li>🔌 <strong>可扩展</strong> - 社区驱动，支持 100+ 语言</li>
+</ul>
+<hr />
+<h2 id="treesitter-vs">Treesitter vs 传统高亮</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>正则高亮</th>
+<th>Treesitter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原理</td>
+<td>正则表达式匹配</td>
+<td>AST 语法树解析</td>
+</tr>
+<tr>
+<td>准确性</td>
+<td>易出错（注释/字符串误判）</td>
+<td>极高（理解代码结构）</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>大文件慢</td>
+<td>增量解析，快速</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>仅高亮</td>
+<td>高亮+缩进+文本对象+折叠</td>
+</tr>
+<tr>
+<td>配置</td>
+<td>简单</td>
+<td>需要编译语法</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Treesitter 是未来，强烈推荐启用。</p>
+<hr />
+<h2 id="_1">你的配置</h2>
+<p>配置位置：<code>~/.config/nvim/lua/plugins/init.lua</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;master&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 关键：锁定 master 分支</span>
+<span class="w">  </span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:TSUpdate&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">ensure_installed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;vim&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;css&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;typescript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;javascript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tsx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rust&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;toml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;yaml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;vue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nv">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_2">⚠️ 重要：分支锁定</h3>
+<p><strong>为什么用 <code>master</code> 而不是 <code>main</code>？</strong></p>
+<ul>
+<li>Treesitter 从 <code>main</code> 分支移除了旧 API（<code>nvim-treesitter.configs</code>）</li>
+<li>NvChad v2.5 仍使用旧 API</li>
+<li>锁定 <code>master</code> 分支避免兼容性问题</li>
+</ul>
+<hr />
+<h2 id="_3">已安装的语法</h2>
+<p>你的配置支持 <strong>16 种语言</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>用途</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vim</td>
+<td>Vim 脚本</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>lua</td>
+<td>Lua 配置</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>vimdoc</td>
+<td>Vim 帮助文档</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>html</td>
+<td>HTML 模板</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>css</td>
+<td>CSS 样式</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>typescript</td>
+<td>TypeScript</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>javascript</td>
+<td>JavaScript</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>tsx</td>
+<td>React JSX</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>json</td>
+<td>JSON 数据</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>python</td>
+<td>Python</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>rust</td>
+<td>Rust</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>java</td>
+<td>Java</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>toml</td>
+<td>TOML 配置</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>yaml</td>
+<td>YAML 配置</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>markdown</td>
+<td>Markdown 文档</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>vue</td>
+<td>Vue 单文件组件</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">查看语法状态</h2>
+<h3 id="_5">查看已安装的语法</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSInstallInfo
+</code></pre></div>
+<p>输出示例：
+<div class="highlight"><pre><span></span><code>vim              [✓] installed
+lua              [✓] installed
+typescript       [✓] installed
+python           [✗] not installed
+</code></pre></div></p>
+<h3 id="_6">查看当前文件的语法</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>echo &amp;<span class="k">filetype</span>
+<span class="p">:</span>TSHighlightCapturesUnderCursor
+</code></pre></div>
+<p>显示光标处的语法捕获组。</p>
+<hr />
+<h2 id="_7">安装与管理语法</h2>
+<h3 id="_8">安装语法</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 安装单个</span>
+<span class="p">:</span>TSInstall typescript
+
+<span class="c">&quot; 安装多个</span>
+<span class="p">:</span>TSInstall typescript javascript vue
+
+<span class="c">&quot; 安装所有（在配置中声明的）</span>
+<span class="p">:</span>TSInstallAll
+</code></pre></div>
+<h3 id="_9">更新语法</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 更新所有</span>
+<span class="p">:</span>TSUpdate
+
+<span class="c">&quot; 更新单个</span>
+<span class="p">:</span>TSUpdate typescript
+</code></pre></div>
+<h3 id="_10">卸载语法</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSUninstall typescript
+</code></pre></div>
+<h3 id="_11">查看语法状态</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSInstallInfo
+</code></pre></div>
+<hr />
+<h2 id="treesitter_2">Treesitter 功能</h2>
+<h3 id="1">1. 语法高亮</h3>
+<p>已启用：
+<div class="highlight"><pre><span></span><code><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>效果</strong>：打开代码文件时，自动使用 Treesitter 高亮。</p>
+<h3 id="2">2. 智能缩进</h3>
+<p>已启用：
+<div class="highlight"><pre><span></span><code><span class="nv">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>效果</strong>：
+- 按 <code>=</code> 自动缩进时，使用 Treesitter 理解代码结构
+- 比传统缩进更准确</p>
+<h3 id="3">3. 文本对象</h3>
+<p>Treesitter 提供强大的文本对象（配合 <code>d</code>/<code>c</code>/<code>y</code>/<code>v</code>）：</p>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@function.outer</code></td>
+<td>整个函数</td>
+<td><code>da@function.outer</code></td>
+</tr>
+<tr>
+<td><code>@function.inner</code></td>
+<td>函数体（不含签名）</td>
+<td><code>di@function.inner</code></td>
+</tr>
+<tr>
+<td><code>@class.outer</code></td>
+<td>整个类</td>
+<td><code>da@class.outer</code></td>
+</tr>
+<tr>
+<td><code>@block.outer</code></td>
+<td>代码块</td>
+<td><code>da@block.outer</code></td>
+</tr>
+<tr>
+<td><code>@loop.outer</code></td>
+<td>循环语句</td>
+<td><code>da@loop.outer</code></td>
+</tr>
+<tr>
+<td><code>@conditional.outer</code></td>
+<td>条件语句</td>
+<td><code>da@conditional.outer</code></td>
+</tr>
+<tr>
+<td><code>@parameter.inner</code></td>
+<td>函数参数</td>
+<td><code>di@parameter.inner</code></td>
+</tr>
+<tr>
+<td><code>@comment.outer</code></td>
+<td>注释</td>
+<td><code>da@comment.outer</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 光标在函数内</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">da</span><span class="err">@</span><span class="kd">function</span><span class="p">.</span><span class="nx">outer</span><span class="w">    </span><span class="s2">&quot; 删除整个函数</span>
+<span class="s2">di@function.inner    &quot;</span><span class="w"> </span><span class="nx">删除函数体</span><span class="err">（</span><span class="nx">保留签名</span><span class="err">）</span>
+<span class="nx">va</span><span class="err">@</span><span class="kd">function</span><span class="p">.</span><span class="nx">outer</span><span class="w">    </span><span class="err">&quot;</span><span class="w"> </span><span class="nx">选中整个函数</span>
+</code></pre></div>
+<h3 id="4">4. 代码折叠</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 基于 Treesitter 折叠</span>
+<span class="p">:</span><span class="k">set</span> <span class="nb">foldmethod</span><span class="p">=</span>expr
+<span class="p">:</span><span class="k">set</span> <span class="nb">foldexpr</span><span class="p">=</span>nvim_treesitter#<span class="nb">foldexpr</span><span class="p">()</span>
+
+<span class="c">&quot; 操作</span>
+zc    <span class="c">&quot; 折叠</span>
+zo    <span class="c">&quot; 展开</span>
+za    <span class="c">&quot; 切换</span>
+zM    <span class="c">&quot; 折叠所有</span>
+zR    <span class="c">&quot; 展开所有</span>
+</code></pre></div>
+<h3 id="5">5. 增量选择</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 逐步扩大选中范围</span>
+<span class="p">&lt;</span>CR<span class="p">&gt;</span>    <span class="c">&quot; 扩大（在可视模式下）</span>
+<span class="p">&lt;</span>BS<span class="p">&gt;</span>    <span class="c">&quot; 缩小</span>
+
+<span class="c">&quot; 示例：</span>
+viw         <span class="c">&quot; 选中单词</span>
+<span class="p">&lt;</span>CR<span class="p">&gt;</span>        <span class="c">&quot; 扩大到句子</span>
+<span class="p">&lt;</span>CR<span class="p">&gt;</span>        <span class="c">&quot; 扩大到段落</span>
+<span class="p">&lt;</span>CR<span class="p">&gt;</span>        <span class="c">&quot; 扩大到函数</span>
+</code></pre></div>
+<hr />
+<h2 id="treesitter_3">配置 Treesitter</h2>
+<h3 id="_12">完整配置示例</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;master&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;:TSUpdate&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">-- 确保安装的语法</span>
+<span class="w">    </span><span class="nv">ensure_installed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;vim&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vimdoc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;css&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;yaml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;toml&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;typescript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;javascript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tsx&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rust&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;java&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;markdown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;vue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">-- 同步安装（启动时）</span>
+<span class="w">    </span><span class="nv">sync_install</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">-- 自动识别文件类型</span>
+<span class="w">    </span><span class="nv">auto_install</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">-- 高亮</span>
+<span class="w">    </span><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">-- 大文件禁用高亮</span>
+<span class="w">      </span><span class="nv">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">lang</span><span class="p">,</span><span class="w"> </span><span class="nv">buf</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">max_filesize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w">  </span><span class="c1">-- 100KB</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">loop</span><span class="p">.</span><span class="py">fs_stat</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_get_name</span><span class="p">(</span><span class="nv">buf</span><span class="p">))</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">stats</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">stats</span><span class="p">.</span><span class="py">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">max_filesize</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">-- 缩进</span>
+<span class="w">    </span><span class="nv">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">-- 文本对象</span>
+<span class="w">    </span><span class="nv">incremental_selection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nv">keymaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">init_selection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">node_incremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">scope_incremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">node_decremental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;BS&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">-- 代码折叠</span>
+<span class="w">    </span><span class="nv">fold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="_13">常见问题排查</h2>
+<h3 id="1module-nvim-treesitterconfigs-not-found">问题 1：<code>module 'nvim-treesitter.configs' not found</code></h3>
+<p><strong>原因</strong>：使用了 <code>main</code> 分支（移除了旧 API）</p>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;master&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 关键：锁定 master</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2_1">问题 2：语法高亮不工作</h3>
+<p><strong>排查</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 1. 检查 Treesitter 是否安装</span>
+<span class="p">:</span>TSInstallInfo
+
+<span class="c">&quot; 2. 检查当前文件类型</span>
+<span class="p">:</span><span class="k">set</span> <span class="nb">ft</span>?
+
+<span class="c">&quot; 3. 检查语法是否安装</span>
+<span class="p">:</span>TSInstallInfo
+
+<span class="c">&quot; 4. 手动安装</span>
+<span class="p">:</span>TSInstall <span class="p">&lt;</span>语言<span class="p">&gt;</span>
+
+<span class="c">&quot; 5. 重新编译</span>
+<span class="p">:</span>TSUpdate
+</code></pre></div>
+<h3 id="3_1">问题 3：高亮颜色异常</h3>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 清除缓存</span>
+<span class="p">:</span>TSBufDisable <span class="nb">highlight</span>
+<span class="p">:</span>TSBufEnable <span class="nb">highlight</span>
+
+<span class="c">&quot; 或重启 Neovim</span>
+</code></pre></div>
+<h3 id="4_1">问题 4：大文件卡顿</h3>
+<p><strong>优化</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 大文件禁用 Treesitter</span>
+<span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">lang</span><span class="p">,</span><span class="w"> </span><span class="nv">buf</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">max_filesize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w">  </span><span class="c1">-- 100KB</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">loop</span><span class="p">.</span><span class="py">fs_stat</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_get_name</span><span class="p">(</span><span class="nv">buf</span><span class="p">))</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">stats</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">stats</span><span class="p">.</span><span class="py">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">max_filesize</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5_1">问题 5：语法编译失败</h3>
+<p><strong>解决</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 清理编译缓存</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.local/share/nvim/lazy/nvim-treesitter/parser/
+
+<span class="c1"># 重新启动 Neovim</span>
+nvim
+
+<span class="c1"># 重新安装语法</span>
+:TSUpdate
+</code></pre></div>
+<hr />
+<h2 id="treesitter_4">Treesitter 文本对象详解</h2>
+<h3 id="_14">函数操作</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">test</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在函数内</span>
+da@<span class="k">function</span>.outer    <span class="c">&quot; 删除整个函数</span>
+<span class="k">di</span>@<span class="k">function</span>.inner    <span class="c">&quot; 删除函数体</span>
+<span class="k">ya</span>@<span class="k">function</span>.outer    <span class="c">&quot; 复制整个函数</span>
+ca@<span class="k">function</span>.outer    <span class="c">&quot; 修改整个函数</span>
+</code></pre></div>
+<h3 id="_15">类操作</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在类内</span>
+da@class.outer     <span class="c">&quot; 删除整个类</span>
+<span class="k">di</span>@class.inner     <span class="c">&quot; 删除类内容</span>
+va@class.outer     <span class="c">&quot; 选中整个类</span>
+</code></pre></div>
+<h3 id="_16">条件语句操作</h3>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">doSomething</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">doAnotherThing</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在 if 语句内</span>
+da@conditional.outer    <span class="c">&quot; 删除整个条件语句</span>
+<span class="k">di</span>@conditional.inner    <span class="c">&quot; 删除条件体</span>
+</code></pre></div>
+<h3 id="_17">循环语句操作</h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 光标在循环内</span>
+da@loop.outer    <span class="c">&quot; 删除整个循环</span>
+<span class="k">di</span>@loop.inner    <span class="c">&quot; 删除循环体</span>
+</code></pre></div>
+<hr />
+<h2 id="_18">性能优化</h2>
+<h3 id="1_1">1. 按需启用语法</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">-- 只为特定语言启用</span>
+<span class="w">  </span><span class="nv">disable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;java&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">-- 禁用 Java 高亮</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2_2">2. 增量解析</h3>
+<p>Treesitter 默认启用增量解析（只解析修改的部分），无需额外配置。</p>
+<h3 id="3_2">3. 查询缓存</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 清除查询缓存</span>
+<span class="p">:</span><span class="k">lua</span> <span class="k">vim</span>.treesitter.query.clear_cache<span class="p">()</span>
+</code></pre></div>
+<h3 id="4_2">4. 查看性能</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 查看解析时间</span>
+<span class="p">:</span><span class="k">lua</span> <span class="k">vim</span>.treesitter.inspect<span class="p">()</span>
+</code></pre></div>
+<hr />
+<h2 id="treesitter-lsp">Treesitter 与 LSP 协同</h2>
+<h3 id="_19">区别与配合</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>Treesitter</th>
+<th>LSP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高亮</td>
+<td>✅ 基于 AST</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>补全</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>跳转定义</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>查找引用</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>诊断</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>缩进</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>文本对象</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>折叠</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：两者都需要，互相补充。</p>
+<hr />
+<h2 id="_20">最佳实践</h2>
+<h3 id="_21">✅ 推荐</h3>
+<ol>
+<li><strong>启用 Treesitter 高亮</strong> - 比正则高亮更准确</li>
+<li><strong>启用智能缩进</strong> - 缩进更准确</li>
+<li><strong>学习 Treesitter 文本对象</strong> - 编辑效率翻倍</li>
+<li><strong>大文件禁用高亮</strong> - 避免性能问题</li>
+<li><strong>定期更新语法</strong> - <code>:TSUpdate</code></li>
+</ol>
+<h3 id="_22">❌ 避免</h3>
+<ol>
+<li>❌ 使用 <code>main</code> 分支（API 不兼容）</li>
+<li>❌ 安装不需要的语法（浪费空间）</li>
+<li>❌ 大文件启用 Treesitter（卡顿）</li>
+<li>❌ 忽略编译错误（高亮异常）</li>
+</ol>
+<hr />
+<h2 id="_23">速查表</h2>
+<h3 id="_24">命令</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSInstallInfo         查看语法状态
+<span class="p">:</span>TSInstall <span class="p">&lt;</span>语言<span class="p">&gt;</span>      安装语法
+<span class="p">:</span>TSUpdate              更新所有语法
+<span class="p">:</span>TSUpdate <span class="p">&lt;</span>语言<span class="p">&gt;</span>       更新单个语法
+<span class="p">:</span>TSUninstall <span class="p">&lt;</span>语言<span class="p">&gt;</span>    卸载语法
+<span class="p">:</span>TSHighlightCapturesUnderCursor  查看光标处语法
+</code></pre></div>
+<h3 id="_25">文本对象</h3>
+<div class="highlight"><pre><span></span><code>@<span class="k">function</span>.outer     整个函数
+@<span class="k">function</span>.inner     函数体
+@class.outer        整个类
+@block.outer        代码块
+@loop.outer         循环
+@conditional.outer  条件语句
+@comment.outer      注释
+@parameter.inner    参数
+</code></pre></div>
+<h3 id="_26">开关</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span>TSBufDisable <span class="nb">highlight</span>    禁用当前 buffer 高亮
+<span class="p">:</span>TSBufEnable <span class="nb">highlight</span>     启用当前 buffer 高亮
+</code></pre></div>
+<hr />
+<h2 id="_27">一句话总结</h2>
+<p><strong>Treesitter = 准确高亮 + 智能缩进 + 强大文本对象 + 代码折叠</strong></p>
+<p>学会 <code>@function</code> / <code>@class</code> / <code>@block</code> 文本对象，你的编辑效率会提升一个档次。</p>
+<hr />
+<h2 id="_28">相关文档</h2>
+<ul>
+<li><a href="EDITING_TIPS.html">高效编辑技巧</a> - 文本对象基础</li>
+<li><a href="LSP_GUIDE.html">LSP 代码智能</a> - LSP 与 Treesitter 协同</li>
+<li><a href="PERFORMANCE.html">性能优化</a> - Treesitter 性能调优</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 NvChad 配置 | 中文完整指南
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2668 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="完整的 Neovim + NvChad 配置教程和文档">
+      
+      
+      
+      
+        <link rel="prev" href="THEME_UI.html">
+      
+      
+        <link rel="next" href="MULTILANG_SETUP.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>快捷键自定义 - NvChad 配置指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#neovim" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="index.html" title="NvChad 配置指南" class="md-header__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NvChad 配置指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              快捷键自定义
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white"  aria-label="切换亮色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换亮色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="grey"  aria-label="切换暗色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="CONFIG_STRUCTURE.html" class="md-tabs__link">
+          
+  
+  
+  快速入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="LSP_GUIDE.html" class="md-tabs__link">
+          
+  
+  
+  核心功能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="LAZY_NVM.html" class="md-tabs__link">
+          
+  
+  
+  插件与工具
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="THEME_UI.html" class="md-tabs__link">
+          
+  
+  
+  个性化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="MULTILANG_SETUP.html" class="md-tabs__link">
+          
+  
+  
+  多语言开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="NAVIGATION.html" class="md-tabs__link">
+          
+  
+  
+  进阶使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="TROUBLESHOOTING.html" class="md-tabs__link">
+          
+  
+  
+  参考
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="NvChad 配置指南" class="md-nav__button md-logo" aria-label="NvChad 配置指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NvChad 配置指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Dwsy/nvim-config" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nvim-config
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    快速入门
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFIG_STRUCTURE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置结构详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WORKFLOW.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="VIM_KEYS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim 快捷键
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EDITING_TIPS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高效编辑技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LSP_GUIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP 代码智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TREESITTER.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treesitter 语法高亮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFORM_FORMAT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代码格式化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TELESCOPE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telescope 搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GIT_INTEGRATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git 集成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插件与工具
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    插件与工具
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LAZY_NVM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lazy 插件管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MASON.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mason 工具管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    个性化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    个性化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="THEME_UI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主题与 UI 定制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快捷键自定义
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="KEYMAPS.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快捷键自定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键系统概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你的当前快捷键
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键基础语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快捷键基础语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vimkeymapset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vim.keymap.set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用快捷键配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用快捷键配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导航
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编辑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LSP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        窗口管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        终端
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主题切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lazy 插件管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mason" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mason 工具管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvchad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NvChad 默认快捷键
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NvChad 默认快捷键">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编辑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件快捷键
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="条件快捷键">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仅特定文件类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仅特定目录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键冲突解决
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快捷键冲突解决">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看快捷键映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解除映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        覆盖映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whichkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WhichKey 集成
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WhichKey 集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whichkey_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 WhichKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        宏录制快捷键
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="宏录制快捷键">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        录制宏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绑定宏到快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 推荐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ 避免
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键分组建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快捷键分组建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spacef" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件相关（Space+f*）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsp-spacel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LSP 相关（Space+l*）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-spaceg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 相关（Space+g*）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插件管理（Space+p*）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具管理（Space+s*）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        速查表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="速查表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关文档
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多语言开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    多语言开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MULTILANG_SETUP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多语言环境配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NAVIGATION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航与 Tabs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TABUFLINE_SESSION.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabufline & Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PERFORMANCE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    性能优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TROUBLESHOOTING.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    故障排查
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONFIG_LOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="neovim">Neovim 快捷键自定义完全指南</h1>
+<h2 id="_1">快捷键系统概述</h2>
+<p>Neovim 的快捷键系统非常强大：</p>
+<ul>
+<li>⌨️ <strong>多模式</strong> - 普通/插入/可视/终端模式</li>
+<li>🔗 <strong>组合键</strong> - Leader 键 + 其他键</li>
+<li>📝 <strong>描述支持</strong> - WhichKey 提示</li>
+<li>🎯 <strong>精确控制</strong> - 模式/上下文/条件</li>
+</ul>
+<hr />
+<h2 id="_2">你的当前快捷键</h2>
+<p>配置位置：<code>~/.config/nvim/lua/mappings.lua</code></p>
+<p>你的配置：
+<div class="highlight"><pre><span></span><code><span class="nb">require</span><span class="w"> </span><span class="s2">&quot;nvchad.mappings&quot;</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="py">set</span>
+
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CMD enter command mode&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;ESC&gt;&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>已配置的快捷键</strong>：
+- <code>;</code> → <code>:</code>（普通模式，快速进入命令模式）
+- <code>jk</code> → <code>&lt;ESC&gt;</code>（插入模式，快速退出）</p>
+<hr />
+<h2 id="_3">快捷键基础语法</h2>
+<h3 id="vimkeymapset">vim.keymap.set</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="err">模式</span><span class="p">,</span><span class="w"> </span><span class="err">快捷键</span><span class="p">,</span><span class="w"> </span><span class="err">命令</span><span class="p">,</span><span class="w"> </span><span class="err">选项</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_4">模式</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"n"</code></td>
+<td>普通模式</td>
+<td>导航、文件操作</td>
+</tr>
+<tr>
+<td><code>"i"</code></td>
+<td>插入模式</td>
+<td>文本输入</td>
+</tr>
+<tr>
+<td><code>"v"</code></td>
+<td>可视模式</td>
+<td>选择文本</td>
+</tr>
+<tr>
+<td><code>"t"</code></td>
+<td>终端模式</td>
+<td>终端操作</td>
+</tr>
+<tr>
+<td><code>"x"</code></td>
+<td>可视模式（排除选择）</td>
+<td>特殊选择</td>
+</tr>
+<tr>
+<td><code>"s"</code></td>
+<td>选择模式</td>
+<td>替换文本</td>
+</tr>
+<tr>
+<td><code>{ "n", "v" }</code></td>
+<td>多模式</td>
+<td>通用操作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">快捷键</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 普通键</span>
+<span class="s2">&quot;a&quot;</span>
+<span class="s2">&quot;&lt;Esc&gt;&quot;</span>
+<span class="s2">&quot;&lt;CR&gt;&quot;</span><span class="w">        </span><span class="c1">-- Enter</span>
+<span class="s2">&quot;&lt;Tab&gt;&quot;</span>
+<span class="s2">&quot;&lt;Space&gt;&quot;</span>
+
+<span class="c1">-- 组合键</span>
+<span class="s2">&quot;&lt;C-s&gt;&quot;</span><span class="w">       </span><span class="c1">-- Ctrl+S</span>
+<span class="s2">&quot;&lt;C-w&gt;&quot;</span><span class="w">       </span><span class="c1">-- Ctrl+W</span>
+<span class="s2">&quot;&lt;A-h&gt;&quot;</span><span class="w">       </span><span class="c1">-- Alt+H（终端可能不支持）</span>
+<span class="s2">&quot;&lt;M-h&gt;&quot;</span><span class="w">       </span><span class="c1">-- Meta+H（同 Alt）</span>
+
+<span class="c1">-- Leader 键（你的配置中是 Space）</span>
+<span class="s2">&quot;&lt;leader&gt;f&quot;</span><span class="w">   </span><span class="c1">-- Space+F</span>
+<span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="w">  </span><span class="c1">-- Space+F+F</span>
+
+<span class="c1">-- 特殊键</span>
+<span class="s2">&quot;&lt;BS&gt;&quot;</span><span class="w">        </span><span class="c1">-- Backspace</span>
+<span class="s2">&quot;&lt;Del&gt;&quot;</span><span class="w">       </span><span class="c1">-- Delete</span>
+<span class="s2">&quot;&lt;Home&gt;&quot;</span>
+<span class="s2">&quot;&lt;End&gt;&quot;</span>
+<span class="s2">&quot;&lt;PageUp&gt;&quot;</span>
+<span class="s2">&quot;&lt;PageDown&gt;&quot;</span>
+</code></pre></div>
+<h3 id="_6">选项</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;描述&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">-- WhichKey 显示</span>
+<span class="w">  </span><span class="nv">silent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">         </span><span class="c1">-- 不显示命令</span>
+<span class="w">  </span><span class="nv">noremap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">        </span><span class="c1">-- 不递归（默认 true）</span>
+<span class="w">  </span><span class="nv">remap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">         </span><span class="c1">-- 允许递归</span>
+<span class="w">  </span><span class="nv">nowait</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">         </span><span class="c1">-- 不等待其他快捷键</span>
+<span class="w">  </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">,</span><span class="w">        </span><span class="c1">-- 仅当前 buffer</span>
+<span class="w">  </span><span class="nv">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="c1">-- 命令是表达式</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="_7">常用快捷键配置</h2>
+<h3 id="_8">文件操作</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="py">set</span>
+
+<span class="c1">-- 保存</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;w&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;w&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Save file&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 保存所有</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;W&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;wa&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Save all files&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 退出</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;q&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Quit&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 保存并退出</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;x&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Save and quit&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 强制退出</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;Q&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;q!&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Force quit&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 重新加载文件</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;e!&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Reload file&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_9">导航</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 查找文件</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope find_files&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Find files&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 全局搜索</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fw&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope live_grep&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Search text&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Buffer 切换</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope buffers&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Find buffers&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 最近文件</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope oldfiles&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Recent files&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Git 状态</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;gs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope git_status&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Git status&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 文件树</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;NvimTreeToggle&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle file tree&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_10">编辑</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 格式化代码</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;conform&#39;).format()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Format code&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 注释</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;Comment.api&#39;).toggle_current_linewise()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle comment&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;Comment.api&#39;).toggle_linewise_op(vim.fn.visualmode())&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle comment&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 复制到系统剪贴板</span>
+<span class="nf">map</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;+y&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Copy to clipboard&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;+Y&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Copy line to clipboard&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 粘贴</span>
+<span class="nf">map</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;p&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;+p&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Paste from clipboard&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="lsp">LSP</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 跳转定义</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope lsp_definitions&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to definition&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 查看引用</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gr&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope lsp_references&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to references&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 查看实现</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope lsp_implementations&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to implementation&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 查看类型定义</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gD&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope lsp_type_definitions&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to type definition&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 悬浮文档</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.lsp.buf.hover()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hover documentation&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 代码操作</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Code action&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 重命名</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;rn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Rename symbol&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 诊断</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Previous diagnostic&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;]d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Next diagnostic&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 诊断列表</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua vim.diagnostic.setloclist()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Diagnostic list&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_11">窗口管理</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 分屏</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Split vertical&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Split horizontal&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 切换窗口</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;h&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move to left window&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-j&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;j&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move to bottom window&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-k&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;k&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move to top window&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;l&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move to right window&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 调整窗口大小</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-Up&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;resize +2&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Increase window height&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-Down&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;resize -2&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Decrease window height&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-Left&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;vertical resize -2&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Increase window width&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-Right&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;vertical resize +2&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Decrease window width&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 均分窗口</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Equal window sizes&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 关闭当前窗口</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sq&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-w&gt;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Close window&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_12">终端</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 打开终端</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ht&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;nvchad.term&#39;).toggle({ pos = &#39;float&#39; })&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle floating terminal&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;hv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;nvchad.term&#39;).toggle({ pos = &#39;sp&#39;, id = &#39;hterm&#39; })&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle horizontal terminal&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;hh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;nvchad.term&#39;).toggle({ pos = &#39;vsp&#39;, id = &#39;vterm&#39; })&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle vertical terminal&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 终端模式退出</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;Esc&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-</span><span class="se">\\</span><span class="s2">&gt;&lt;C-n&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Exit terminal mode&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_13">主题切换</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 切换深色/浅色</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;tt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;lua require(&#39;base46&#39;).toggle_theme()&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle theme&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 选择主题</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;tc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope themes&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Choose theme&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="lazy">Lazy 插件管理</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 打开 Lazy</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;pl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Lazy&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open Lazy&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 更新插件</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;pu&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Lazy update&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Update plugins&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 同步插件</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ps&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Lazy sync&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Sync plugins&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="mason">Mason 工具管理</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 打开 Mason</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Mason&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open Mason&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 更新工具</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;su&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;MasonUpdate&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Update Mason tools&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="nvchad">NvChad 默认快捷键</h2>
+<p>你的配置中 <code>require "nvchad.mappings"</code> 加载了 NvChad 默认快捷键：</p>
+<h3 id="_14">通用</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space</code></td>
+<td>Leader 键</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td><code>:</code>（命令模式）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">文件</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space+ff</code></td>
+<td>查找文件</td>
+</tr>
+<tr>
+<td><code>Space+fw</code></td>
+<td>全局搜索</td>
+</tr>
+<tr>
+<td><code>Space+fb</code></td>
+<td>Buffer 切换</td>
+</tr>
+<tr>
+<td><code>Space+fo</code></td>
+<td>最近文件</td>
+</tr>
+<tr>
+<td><code>Space+e</code></td>
+<td>文件树</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">编辑</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space+lf</code></td>
+<td>格式化</td>
+</tr>
+<tr>
+<td><code>Space+ca</code></td>
+<td>代码操作</td>
+</tr>
+<tr>
+<td><code>Space+rn</code></td>
+<td>重命名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git">Git</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space+gc</code></td>
+<td>提交历史</td>
+</tr>
+<tr>
+<td><code>Space+gs</code></td>
+<td>Git 状态</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_17">条件快捷键</h2>
+<h3 id="_18">仅特定文件类型</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 仅为 Lua 文件配置快捷键</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;FileType&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;luafile %&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Run Lua file&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="_19">仅特定目录</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 检测项目根目录</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">has_file</span><span class="p">(</span><span class="nv">pattern</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="o">#</span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="nv">pattern</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="kr">end</span>
+
+<span class="kr">if</span><span class="w"> </span><span class="nf">has_file</span><span class="p">(</span><span class="s2">&quot;package.json&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">  </span><span class="c1">-- Node.js 项目快捷键</span>
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;nr&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!npm run&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;NPM run&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h2 id="_20">快捷键冲突解决</h2>
+<h3 id="_21">查看快捷键映射</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 查看某个快捷键</span>
+<span class="p">:</span><span class="k">verbose</span> map <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">f</span>
+
+<span class="c">&quot; 查看所有快捷键</span>
+<span class="p">:</span>map
+
+<span class="c">&quot; 查看普通模式</span>
+<span class="p">:</span>nmap
+
+<span class="c">&quot; 查看插入模式</span>
+<span class="p">:</span>imap
+</code></pre></div>
+<h3 id="_22">解除映射</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 普通模式</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">del</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;f&quot;</span><span class="p">)</span>
+
+<span class="c1">-- 插入模式</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">del</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jk&quot;</span><span class="p">)</span>
+
+<span class="c1">-- 多模式</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">del</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;y&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_23">覆盖映射</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 直接重新配置</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope find_files&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Find files&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="whichkey">WhichKey 集成</h2>
+<p>WhichKey 会在按下 <code>&lt;leader&gt;</code> 后显示可用快捷键。</p>
+<h3 id="_24">配置描述</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Telescope find_files&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Find files&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">-- WhichKey 会显示这个描述</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="whichkey_1">自定义 WhichKey</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 添加自定义 WhichKey 分组</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;which-key&quot;</span><span class="p">).</span><span class="nf">add</span><span class="p">({</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;g&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Git&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;p&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Plugins&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Search&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="_25">宏录制快捷键</h2>
+<h3 id="_26">录制宏</h3>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; 开始录制到寄存器 q</span>
+qq
+
+<span class="c">&quot; 执行操作</span>
+...一系列操作...
+
+<span class="c">&quot; 停止录制</span>
+<span class="k">q</span>
+</code></pre></div>
+<h3 id="_27">绑定宏到快捷键</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 执行寄存器 q 中的宏</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;m&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@q&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Run macro q&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- 执行 10 次</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10@q&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Run macro q 10 times&quot;</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="_28">最佳实践</h2>
+<h3 id="_29">✅ 推荐</h3>
+<ol>
+<li><strong>使用 Leader 键</strong> - 避免冲突（你的 Leader 是 Space）</li>
+<li><strong>添加 <code>desc</code> 描述</strong> - WhichKey 提示</li>
+<li><strong>使用 <code>silent = true</code></strong> - 不显示命令</li>
+<li><strong>分组组织</strong> - <code>Space+f*</code> 文件，<code>Space+l*</code> LSP</li>
+<li><strong>记录快捷键清单</strong> - 方便查阅</li>
+</ol>
+<h3 id="_30">❌ 避免</h3>
+<ol>
+<li>❌ 覆盖重要默认键（如 <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code>）</li>
+<li>❌ 使用 <code>Ctrl+字母</code>（终端可能拦截）</li>
+<li>❌ 快捷键太多（记住常用的即可）</li>
+<li>❌ 不添加描述（WhichKey 不显示）</li>
+</ol>
+<hr />
+<h2 id="_31">快捷键分组建议</h2>
+<h3 id="spacef">文件相关（Space+f*）</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Space</span><span class="o">+</span><span class="nv">ff</span><span class="w">    </span><span class="err">查找文件</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">fw</span><span class="w">    </span><span class="err">搜索文本</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">fb</span><span class="w">    </span><span class="nv">Buffer</span><span class="w"> </span><span class="err">切换</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">fo</span><span class="w">    </span><span class="err">最近文件</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">fe</span><span class="w">    </span><span class="err">文件树</span>
+</code></pre></div>
+<h3 id="lsp-spacel">LSP 相关（Space+l*）</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Space</span><span class="o">+</span><span class="nv">lf</span><span class="w">    </span><span class="err">格式化</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">la</span><span class="w">    </span><span class="err">代码操作</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">ln</span><span class="w">    </span><span class="err">重命名</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">ld</span><span class="w">    </span><span class="err">诊断</span>
+</code></pre></div>
+<h3 id="git-spaceg">Git 相关（Space+g*）</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Space</span><span class="o">+</span><span class="nv">gs</span><span class="w">    </span><span class="nv">Git</span><span class="w"> </span><span class="err">状态</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">gc</span><span class="w">    </span><span class="err">提交历史</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">gb</span><span class="w">    </span><span class="nv">Blame</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">gd</span><span class="w">    </span><span class="nv">Diff</span>
+</code></pre></div>
+<h3 id="spacep">插件管理（Space+p*）</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Space</span><span class="o">+</span><span class="nv">pl</span><span class="w">    </span><span class="nv">Lazy</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">pu</span><span class="w">    </span><span class="err">更新插件</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">ps</span><span class="w">    </span><span class="err">同步插件</span>
+</code></pre></div>
+<h3 id="spaces">工具管理（Space+s*）</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Space</span><span class="o">+</span><span class="nv">sm</span><span class="w">    </span><span class="nv">Mason</span>
+<span class="nv">Space</span><span class="o">+</span><span class="nv">su</span><span class="w">    </span><span class="err">更新工具</span>
+</code></pre></div>
+<hr />
+<h2 id="_32">速查表</h2>
+<h3 id="_33">语法</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="err">模式</span><span class="p">,</span><span class="w"> </span><span class="err">快捷键</span><span class="p">,</span><span class="w"> </span><span class="err">命令</span><span class="p">,</span><span class="w"> </span><span class="err">选项</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_34">常用选项</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;描述&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">silent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">noremap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">nowait</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_35">排查</h3>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="k">verbose</span> map <span class="p">&lt;</span>键<span class="p">&gt;</span>    查看映射来源
+<span class="p">:</span>map                 所有映射
+<span class="p">:</span>mapclear            清除所有（慎用）
+</code></pre></div>
+<hr />
+<h2 id="_36">一句话总结</h2>
+<p><strong><code>vim.keymap.set</code> 配置 + <code>&lt;leader&gt;</code> 组织 + <code>desc</code> 提示 = 高效快捷键系统</strong></p>
+<p>设计好快捷键分组，形成肌肉记忆，你的编辑速度会飞快。</p>
+<hr />
+<h2 id="_37">相关文档</h2>
+<ul>
+<li><a href="VIM_KEYS.html">Vim 基础快捷键</a> - 默认快捷键列表</li>
+<li><a href="CONFIG_STRUCTURE.html">配置结构详解</a> - mappings.lua 文件位置</li>
+<li><a href="EDITING_TIPS.html">高效编辑技巧</a> - 编辑操作组合</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 NvChad 配置 | 中文完整指南
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
