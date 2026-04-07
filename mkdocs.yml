@@ -58,18 +58,29 @@ markdown_extensions:
 
 nav:
   - 首页: index.md
-  - 配置指南: README.md
   - 快速入门:
+    - 配置结构详解: CONFIG_STRUCTURE.md
     - 开发工作流: WORKFLOW.md
     - Vim 快捷键: VIM_KEYS.md
     - 高效编辑技巧: EDITING_TIPS.md
   - 核心功能:
     - LSP 代码智能: LSP_GUIDE.md
+    - Treesitter 语法高亮: TREESITTER.md
+    - 代码格式化: CONFORM_FORMAT.md
     - Telescope 搜索: TELESCOPE.md
     - Git 集成: GIT_INTEGRATION.md
+  - 插件与工具:
+    - Lazy 插件管理: LAZY_NVM.md
+    - Mason 工具管理: MASON.md
+  - 个性化:
+    - 主题与 UI 定制: THEME_UI.md
+    - 快捷键自定义: KEYMAPS.md
+  - 多语言开发:
+    - 多语言环境配置: MULTILANG_SETUP.md
   - 进阶使用:
     - 导航与 Tabs: NAVIGATION.md
     - Tabufline & Session: TABUFLINE_SESSION.md
+    - 性能优化: PERFORMANCE.md
   - 参考:
     - 故障排查: TROUBLESHOOTING.md
     - 配置日志: CONFIG_LOG.md

@@ -11,7 +11,8 @@
 ## 📚 文档导航
 
 ### 🎯 快速开始
-- **[配置指南](README.md)** - NvChad 完整配置（LSP、Treesitter、Mason）
+- **[安装与配置](README.md)** - NvChad 完整配置（LSP、Treesitter、Mason）
+- **[配置结构详解](CONFIG_STRUCTURE.md)** - 了解配置组织方式与文件结构
 - **[开发工作流](WORKFLOW.md)** - 日常开发完整流程与实战场景
 - **[配置日志](CONFIG_LOG.md)** - 完整的实战配置日志（2025-12-28）
 
@@ -23,8 +24,24 @@
 
 ### 🔌 核心功能
 - **[LSP 代码智能](LSP_GUIDE.md)** - 跳转定义、引用、补全、诊断
+- **[Treesitter 语法高亮](TREESITTER.md)** - AST 高亮、文本对象、智能缩进
+- **[代码格式化](CONFORM_FORMAT.md)** - 自动格式化、多语言支持、配置
 - **[Telescope 搜索](TELESCOPE.md)** - 模糊搜索、文件查找、全局搜索
 - **[Git 集成](GIT_INTEGRATION.md)** - Gitsigns、Blame、Hunk 操作
+
+### 🧩 插件与工具
+- **[Lazy 插件管理](LAZY_NVM.md)** - 安装、更新、删除、性能分析
+- **[Mason 工具管理](MASON.md)** - LSP、Formatter、Linter 管理
+
+### 🎨 个性化
+- **[主题与 UI 定制](THEME_UI.md)** - 主题切换、颜色覆盖、UI 组件
+- **[快捷键自定义](KEYMAPS.md)** - 快捷键配置、WhichKey 集成、冲突解决
+
+### 🌍 多语言开发
+- **[多语言环境配置](MULTILANG_SETUP.md)** - TS/Vue/Python/Rust/Java/Lua 完整配置
+
+### 🚀 进阶使用
+- **[性能优化](PERFORMANCE.md)** - 启动加速、内存优化、大文件处理
 
 ### 🔧 参考手册
 - **[故障排查](TROUBLESHOOTING.md)** - 常见问题解决方案
@@ -35,20 +52,23 @@
 
 ### ✅ 已实现
 - **LSP 支持** - TypeScript / Vue / Python / Rust / Java（含 Lombok）
-- **代码高亮** - Treesitter（master 分支兼容）
-- **代码格式化** - Conform（prettier / stylua / ruff）
+- **代码高亮** - Treesitter（16 种语言，master 分支兼容）
+- **代码格式化** - Conform（Prettier / StyLua / Ruff / Rustfmt）
 - **文件树** - nvim-tree（Java 包目录合并）
-- **Fuzzy 搜索** - Telescope（快速找文件、Buffer、最近打开）
+- **Fuzzy 搜索** - Telescope（快速找文件、Buffer、全局搜索）
 - **Git 集成** - Gitsigns（Blame / Hunk / Diff）
-- **代码片段** - LuaSnip + friendly-snippets
-- **自动补全** - nvim-cmp
-- **Mason** - 自动安装 LSP / Formatter / 工具
+- **插件管理** - Lazy.nvim（懒加载、性能分析）
+- **工具管理** - Mason（LSP / Formatter / Linter 一键安装）
+- **主题系统** - Base46（40+ 主题，自定义颜色）
+- **快捷键** - WhichKey 提示，自定义映射
+- **性能优化** - 大文件处理、启动加速、内存管理
 
 ### 🎨 UI / UX
-- **主题** - 可切换多个主题
+- **主题** - 40+ 主题可选（ayu_dark / tokyonight / catppuccin）
 - **状态栏** - NvChad 自定义 statusline
-- **终端** - 内置终端集成
+- **终端** - 内置终端集成（水平/垂直/浮动）
 - **导航** - WhichKey 快捷键提示
+- **Tabufline** - 智能 Buffer 状态栏
 
 ---
 
@@ -123,21 +143,34 @@ gd                  # 试试跳转定义
 
 ### 第 1 天：基础
 - 读 [Vim 基础快捷键](VIM_KEYS.md) - 掌握基本操作
+- 读 [配置结构详解](CONFIG_STRUCTURE.md) - 了解配置组织
 - 在编辑器里练习 `hjkl` / `yy` / `dd`
 
-### 第 2 天：导航
+### 第 2 天：导航与搜索
 - 读 [导航与 Tabs 管理](NAVIGATION.md)
-- 学会 `gd` / `Ctrl+o` / `Space+fb`
-- 理解 Buffer vs Tab 的区别
+- 读 [Telescope 搜索](TELESCOPE.md)
+- 学会 `gd` / `Ctrl+o` / `Space+ff` / `Space+fb`
 
 ### 第 3 天：工作流
 - 读 [Tabufline & Session](TABUFLINE_SESSION.md)
+- 读 [开发工作流](WORKFLOW.md)
 - 配置自己的工作区（前端 / 后端 / 文档）
-- 使用 `:SessionSave` 保留状态
 
-### 持续：深入
-- [完整配置指南](README.md) - 了解每个配置
-- [配置日志](CONFIG_LOG.md) - 看实战过程
+### 第 4-5 天：核心功能
+- 读 [LSP 代码智能](LSP_GUIDE.md) - 代码导航与重构
+- 读 [Treesitter 语法高亮](TREESITTER.md) - 文本对象
+- 读 [代码格式化](CONFORM_FORMAT.md) - 自动格式化
+
+### 第 6-7 天：插件与工具
+- 读 [Lazy 插件管理](LAZY_NVM.md) - 安装/更新/性能分析
+- 读 [Mason 工具管理](MASON.md) - LSP/Formatter 管理
+- 读 [主题与 UI 定制](THEME_UI.md) - 个性化界面
+
+### 持续：深入与优化
+- [多语言环境配置](MULTILANG_SETUP.md) - 配置各语言开发环境
+- [性能优化](PERFORMANCE.md) - 启动加速与内存管理
+- [快捷键自定义](KEYMAPS.md) - 打造个人工作流
+- [故障排查](TROUBLESHOOTING.md) - 问题解决能力
 
 ---
 
